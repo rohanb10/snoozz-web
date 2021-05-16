@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/animate.css" rel="stylesheet">
+  <link href="./css/common.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <title>Snoozz - Tab & Window Snoozing</title>
+  <style type="text/css">
+    .hero p {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .hero-btn {
+      outline: none;
+      padding: 3px;
+      background-image: linear-gradient(90deg, var(--orange) 0%, var(--pink) 100%);
+    }
+    .hero-btn.reverse {
+      background-image: linear-gradient(90deg, var(--pink) 0%, var(--orange) 100%);
+    }
+    .hero-btn div {
+      font-weight: 600;
+      text-transform: uppercase;
+      background-color: #FFF;
+    }
+    .store-listing img {
+      max-height: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./img/main-icon.png" alt="snoozz logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a target="_blank" class="nav-link" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./changelog.html">Changelog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./privacy.html">Privacy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-stripe"></div>
+  </nav>
+  <div class="container py-lg-5">
+    <div class="row hero">
+      <div class="col-lg-7 hero-container mx-auto text-center" style="max-height: 500px;">
+        <img id="hero_jpg" class="img-fluid wow fadeIn shadow" src="./img/hero.jpg">
+      </div>
+      <div class="col d-flex flex-column align-items-center justify-content-center py-5">
+        <img class="img-fluid wow fadeIn" data-delay=".75s" src="./img/snoozz-colour.png" style="max-width: 300px;">
+        <p class="text-center wow fadeIn pt-4" data-delay="1s">A WebExtension to put tabs to sleep, <br>and automatically wake them up later.</p>
+        <div class="hero-btn pointy my-4 text-center fadeIn" onclick="loadHeroGif()">
+          <div class="p-3">See it in action</div>
+        </div>
+        <div class="text-center">
+          <div class="hero-btn pointy mt-4 text-center fadeIn store-listing reverse">
+            <a href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">
+              <img src="./img/cws.png">
+            </a>
+          </div>
+          <div class="hero-btn pointy mt-3 text-center fadeIn store-listing">
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">
+              <img src="./img/moz.jpg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="pt-lg-5 pt-md-4 pt-3 pb-3 mt-auto">
+    <div class="footer-stripe"></div>
+    <div class="row container mx-auto">
+      <div class="col-12 col-md">
+        <h5>Snoozz</h5>
+        <small class="d-block mb-3 text-muted">2020-2021</small>
+        <h5>Author</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://rohan.xyz/">Rohan Bhansali</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Support</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
+          <li><a class="link-secondary" href="./compatibility.html">Compatibility</a></li>
+          <li><a target="_blank" class="link-secondary" href="mailto:rohanb10@gmail.com?subject=I%20want%20bad%20ideas%20and%20I%20want%20them%20now&body=Give%20them%20to%20me">Receive bad ideas</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary" href="./privacy.html">Privacy Policy</a></li>
+          <li><a class="link-secondary" href="./faq.html">FAQ</a></li>
+          <li><a class="link-secondary" href="./changelog.html">Changelog</a></li>
+          <li><a class="link-secondary" href="./attribution.html">Attribution</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Links</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">Chrome Web Store</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">Firefox Browser Add-Ons</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div id="hidden" class="d-none"></div>
+  <script src="./js/wow.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    // new WOW({offset: 200}).init();
+    var duration_map = {
+      'hero.gif': 4350,
+      'hero1.gif': 2660,
+      'hero2.gif': 6540
+    }
+    var heroTimeout;
+    async function loadHeroGif() {
+      clearTimeout(heroTimeout)
+      // await new Promise(r => setTimeout(r, 3000));
+      var playGif = _ => {
+        document.getElementById('hero_jpg').classList.add('d-none');
+        document.getElementById('hero_gif').classList.remove('d-none');
+        heroTimeout = setTimeout(_ => {
+          document.getElementById('hero_gif').classList.add('d-none');
+          document.getElementById('hero_jpg').classList.remove('d-none');
+        }, 2660)
+      }
+      if (document.getElementById('hero_gif')) return playGif();
+      var img = document.createElement('img');
+      img.classList.add('shadow','d-none');
+      img.id = 'hero_gif';
+      document.querySelector('.hero-container').append(img);
+      img.onload = playGif;
+      img.src = './img/hero1.gif';
+    }
+  </script>
+</body>
+</html>

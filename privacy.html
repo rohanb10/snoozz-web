@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/animate.css" rel="stylesheet">
+  <link href="./css/common.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <title>Privacy | Snoozz</title>
+  <style type="text/css">
+    h4 {
+      margin-top: 1.25rem;
+      color: var(--pink);
+    }
+    h4 ~ p:before {
+      content: '- ';
+    }
+  </style>
+</head>
+<body class="d-flex flex-column">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./img/main-icon.png" alt="snoozz logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a target="_blank" class="nav-link" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./changelog.html">Changelog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./privacy.html">Privacy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-stripe"></div>
+  </nav>
+  <div class="container py-lg-5">
+    <h1><strong>Privacy</strong></h1>
+    <div class="row d-flex flex-row-reverse align-items-center">
+      <div data-delay="1s" class="col-md-4 py-5 text-center wow fadeIn">
+        <img style="max-height: 200px;" class="img-fluid " src="./img/safe.png">
+      </div>
+      <div class="col-md-8">
+        <p class="mb-4">Snoozz has never collected, aggregated or analysed your data in any way. Not even diagnostic or crash data.</p>
+        <p class="mb-4">All your tab and window data stays on your device without any network communication. It is not uploaded anywhere.</p>
+        <p class="mb-4">This extension is designed to work completely offline. Can't steal data if you're not connected to the internet.</p>
+        <p class="mb-4">Don't trust some random text on the internet? Take a look at <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing">the code</a> yourself.</p>
+      </div>
+    </div>
+    <h3><strong>Permissions</strong></h3>
+    <h4>alarms</h4>
+    <p class="mb-1">A single alarm is created (and reused) to wake up your tabs at the correct time.</p>
+    <p>If no tabs are waking up in the next hour, the alarm is set to be triggered again in an hour.</p>
+    <h4>notifications</h4>
+    <p>Send you notifications when a tab is reopened. (Can be turned off through your system preferences)</p>
+    <h4>tabs</h4>
+    <p class="mb-1">Used to fetch <strong>only</strong>** the metadata from your tabs (title, url, favicon).</p>
+    <p>No metadata is passively recorded - it is only saved when users perform a specific action to snooze a tab or window.</p>
+    <h4>storage</h4>
+    <p class="mb-1">Used to store snoozed tabs and windows.</p>
+    <p class="mb-1">Used to store user preferences which can be configured the settings page.</p>
+    <p class="mb-1">Only local storage is used for this extension.</p>
+    <p>Old tabs are deleted periodically. You can adjust the frequency of this on the settings page.</p>
+    <h4>contextMenu</h4>
+    <p class="mb-1">Used to create the Snoozz submenu in your context menu.</p>
+    <p class="mb-1">Only appears when you right click on a link with a valid href attribute.</p>
+    <p>This can be turned off on your settings page.</p>
+    <h4>idle</h4>
+    <p>When the <span class="font-monospace">idle</span> state changes to <span class="font-monospace">active</span>, the extension will open any overdue tabs or recalculate the next alarm time.</p>
+    <h4>commands</h4>
+    <p class="mb-5">Used to configure keyboard shortcuts on compatible browsers. Shortcuts are off by default.</p>
+
+    <h3><strong>Data Retention</strong></h3>
+    <p class="mb-2">Deleting this extension will delete all your data and preferences. It cannot be recovered at all.</p>
+    <p class="mb-5">If you would like to retain your data, please export it from the settings page before removing the extension.</p>
+  </div>
+  <footer class="pt-lg-5 pt-md-4 pt-3 pb-3 mt-auto">
+    <div class="footer-stripe"></div>
+    <div class="row container mx-auto">
+      <div class="col-12 col-md">
+        <h5>Snoozz</h5>
+        <small class="d-block mb-3 text-muted">2020-2021</small>
+        <h5>Author</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://rohan.xyz/">Rohan Bhansali</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Support</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
+          <li><a class="link-secondary" href="./compatibility.html">Compatibility</a></li>
+          <li><a target="_blank" class="link-secondary" href="mailto:rohanb10@gmail.com?subject=I%20want%20bad%20ideas%20and%20I%20want%20them%20now&body=Give%20them%20to%20me">Receive bad ideas</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary" href="./privacy.html">Privacy Policy</a></li>
+          <li><a class="link-secondary" href="./faq.html">FAQ</a></li>
+          <li><a class="link-secondary" href="./changelog.html">Changelog</a></li>
+          <li><a class="link-secondary" href="./attribution.html">Attribution</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Links</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">Chrome Web Store</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">Firefox Browser Add-Ons</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div id="hidden" class="d-none"></div>
+  <script src="./js/wow.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    new WOW({offset: 200}).init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+:root {
+  --pink: #DF4E76;
+  --orange: #f3b845;
+}
+
+body {
+  line-height: 1.1;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+.pointy, .pointy * {
+  cursor: pointer;
+}
+.navbar-brand img {
+  height: 3rem;
+  width: 3rem;
+  animation: spin 5s infinite linear paused;
+}
+.navbar-brand img:hover {
+  animation-play-state: running;
+}
+nav .nav-link.active {
+	color: var(--pink) !important;
+}
+.navbar-stripe, .footer-stripe {
+  position: absolute;
+  height: 5px;
+  top: -5px;
+  width: 100vw;
+  background-size: 404%;
+  background-image: linear-gradient(90deg, var(--orange) 0%, var(--pink) 25%, var(--orange) 50%, var(--pink) 75%, var(--orange) 100%);
+  left: 0;
+  animation: footer-scroll 20s linear infinite alternate both;
+}
+.navbar-stripe {
+  top: 100%;
+  display: none;
+  animation-direction: alternate-reverse;
+}
+@media (max-width: 993px) {
+  nav.navbar {
+    background-color: #FFF !important;
+    margin-bottom: 1rem;
+  }
+  .navbar-stripe {
+    display: block;
+  }
+}
+img {
+	max-height: inherit;
+}
+.shadow {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12);
+}
+footer, nav {
+  position: relative;
+}
+footer li {
+  margin-bottom: .4rem;
+}
+@keyframes spin {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+@keyframes footer-scroll {
+  from {background-position: 0% 0%}
+  to {background-position: 300% 0%}
+}

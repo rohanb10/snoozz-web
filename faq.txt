@@ -1,0 +1,7 @@
+Search Queries
+Case insensitive
+- Website titles, urls
+- Dates: snoozed on, woken up, months
+- Relative dates: last week, yesterday, today, tomorrow, next week
+- Snooze state: opened, deleted, snoozed, sleeping, history etc.
+- 

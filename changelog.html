@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/animate.css" rel="stylesheet">
+  <link href="./css/common.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <title>Changelog | Snoozz</title>
+  <style type="text/css">
+    h4 {
+      margin-top: 4rem;
+      color: var(--pink);
+    }
+    .main-container small:first-of-type:after {
+      content: 'Latest Release';
+      margin-left: 2rem;
+      color: #FFF;
+      display: inline-block;
+      background-color: var(--orange);
+      border-radius: .25rem;
+      padding: 1px 4px;
+    }
+    h4 ~ p:before {
+      content: '- ';
+    }
+    @media (max-width: 768px) {
+      p {
+        margin-bottom: .5rem;
+      }
+    }
+  </style>
+</head>
+<body class="d-flex flex-column">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./img/main-icon.png" alt="snoozz logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a target="_blank" class="nav-link" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./changelog.html">Changelog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./privacy.html">Privacy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-stripe"></div>
+  </nav>
+  <div class="container main-container py-lg-5">
+
+    <h1><strong>Changelog</strong></h1>
+
+    <h4 class="mt-4">v2.4.0</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">May 2021</small>
+    <p>Edit Snoozz times for sleeping tabs 🎉</p>
+    <p>New Date and Time picker for custom snooze time selection</p>
+    <p>Snooze selected tabs (and a new UI for selecting snooze targets)</p>
+    <p>New options: "One Hour From Now" and "On Next Startup"</p>
+    <p>Export and Smart Import tabs to use across different devices (No duplicates, the most recently updated tab will be saved to your device)</p>
+
+    <h4 class="mt-5">v2.3.3</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Jan 2021</small>
+    <p>Make entire extension keyboard navigable</p>
+    <p>Improve dashboard performance</p>
+    <p>Change notification click actions</p>
+
+    <h4 class="mt-5">v2.3.2.1 and 2.3.2.2</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Nov 2020</small>
+    <p>Critical bug hotfixes released within 24 hours of 2.3.2</p>
+
+
+    <h4 class="mt-5">v2.3.2</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Nov 2020</small>
+    <p>Multiple tabs/windows waking up bug fix 🤞</p>
+    <p>Confirmation when changing history setting</p>
+
+    <h4 class="mt-5">v2.3.1</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Nov 2020</small>
+    <p>Dark mode 🌚</p>
+    <p>Visualise available storage on the settings page</p>
+    <p>Add option to select time as "now" for [monday, weekend, next-week, next-month]</p>
+    <p>Webkit specific changes for Safari compatibility (Individual builds required [<a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/blob/master/docs/safari.md">See here</a>]. Not available on App Store)</p>
+
+
+    <h4 class="mt-5">v2.3.0</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Oct 2020</small>
+    <p>First release on Microsoft Edge 🎉</p>
+    <p>Add Search to the Dashboard [urls | titles | snooze date | wake up date | day of week | month | relative time | snoozz state]</p>
+    <p>Add live clock css/js animation to the Dashboard when no tabs are found.</p>
+    <p>Onboarding instructions UI on the Dashboard (shown when no tabs in storage).</p>
+    <p>Change copy on settings page to make easier to comprehend.</p>
+    <p>Tabs opening twice and other misc bug fixes.</p>
+    <p>Firefox popup "choose your own time" style changes.</p>
+
+    <h4 class="mt-5">v2.2.0</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Oct 2020</small>
+    <p>Keyboard Shortcuts</p>
+    <p>Add setting to change default time for [monday, weekend, next-week, next-month] from morning to evening</p>
+    <p>Bug fixes, minor UI adjustments</p>
+
+    <h4 class="mt-5">v2.1.2</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Oct 2020</small>
+    <p>Change the Snoozz logo font (Slightly modified version of Bungee by <a target="_blank" href="https://djr.com/">David Jonathan Ross</a>)</p>
+    <p>Make use of the Idle API for more reliable waking up of tabs and windows</p>
+    <p>Allow UI animation when closing a popup to be customised in the settings menu</p>
+    <p>Show snoozz contextmenu when clicking on a tab in the tab bar (FF only)</p>
+    <p>Show icons in contextmenu and disable icons that are invalid (FF only)</p>
+    <p>Restructure files in repository</p>
+
+    <h4 class="mt-5">v2.1.1</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Sep 2020</small>
+    <p>Fix trailing span on the rise and shine page</p>
+
+    <h4 class="mt-5">v2.1.0</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Sep 2020</small>
+    <p>Firefox Specific Changes</p>
+    <p>Make setting/getting options more secure and efficient</p>
+
+    <h4 class="mt-5">v2.0.0</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Sep 2020</small>
+    <p>Major rewrite of almost the entire codebase</p>
+    <p>Ability to snooze entire windows</p>
+    <p>Transition from native JS dates to the lightweight Day.js library.</p>
+    <p>Context menu snoozing</p>
+    <p>Support for pinned tabs</p>
+    <p>Make the choices in the popup modular so they can be used for editing UI in the future</p>
+    <p>More reliable history purging</p>
+    <p>Ability to manually wake up a tab at any time.</p>
+    <p>Convert all settings into select menus for better reliability</p>
+
+    <h4 class="mt-5">v1.3.0</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Aug 2020</small>
+    <p>Add right click option for snoozing</p>
+    <p>Change unknown tab icon</p>
+    <p>Fix history not clearing on dashboard</p>
+
+    <h4 class="mt-5">v1.2.1</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Jul 2020</small>
+    <p>Merge firefox and chrome codebases into one</p>
+
+    <h4 class="mt-5">v1.2.0</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Jul 2020</small>
+    <p>Migrate extension to firefox</p>
+    <p>Refresh dashboard in background if any tabs are snoozed / woken up</p>
+
+    <h4 class="mt-5">v1.1.1</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Jul 2020</small>
+    <p>Prevent multiple instances of settings/dashboard page from being open in one window</p>
+
+    <h4 class="mt-5">v1.1.0</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Jul 2020</small>
+    <p>Add ability to change (or disable) the number icon on the toolbar</p>
+
+    <h4 class="mt-5">v1.0.2</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Jul 2020</small>
+    <p>Fix notification bug when reopening tab</p>
+
+    <h4 class="mt-5">v1.0.2</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Jul 2020</small>
+    <p>Fix option to change history deletion duration </p>
+
+    <h4 class="mt-5">v1.0.1</h4>
+    <small class="text-muted mb-lg-4 mb-3 d-block">Jul 2020</small>
+    <p class="mb-5">Fix error on startup with no settings initialized in local storage</p>
+
+  </div>
+  <footer class="pt-lg-5 pt-md-4 pt-3 pb-3 mt-auto">
+    <div class="footer-stripe"></div>
+    <div class="row container mx-auto">
+      <div class="col-12 col-md">
+        <h5>Snoozz</h5>
+        <small class="d-block mb-3 text-muted">2020-2021</small>
+        <h5>Author</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://rohan.xyz/">Rohan Bhansali</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Support</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
+          <li><a class="link-secondary" href="./compatibility.html">Compatibility</a></li>
+          <li><a target="_blank" class="link-secondary" href="mailto:rohanb10@gmail.com?subject=I%20want%20bad%20ideas%20and%20I%20want%20them%20now&body=Give%20them%20to%20me">Receive bad ideas</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary" href="./privacy.html">Privacy Policy</a></li>
+          <li><a class="link-secondary" href="./faq.html">FAQ</a></li>
+          <li><a class="link-secondary" href="./changelog.html">Changelog</a></li>
+          <li><a class="link-secondary" href="./attribution.html">Attribution</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Links</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">Chrome Web Store</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">Firefox Browser Add-Ons</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div id="hidden" class="d-none"></div>
+  <script src="./js/wow.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    new WOW({offset: 200}).init();
+  </script>
+</body>
+</html>
