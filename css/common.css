@@ -22,6 +22,10 @@ body {
 nav .nav-link.active {
 	color: var(--pink) !important;
 }
+/*temp hiding links*/
+.navbar-nav li.nav-item:nth-of-type(3) {
+  display: none;
+}
 .navbar-stripe, .footer-stripe {
   position: absolute;
   height: 5px;
