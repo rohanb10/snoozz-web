@@ -190,7 +190,6 @@
   </footer>
   <div id="hidden" class="d-none"></div>
   <script src="./js/wow.js"></script>
-  <script src="./js/masonry.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script>
     new WOW({offset: 200}).init();
@@ -208,19 +207,18 @@
         duration: 4350,
       },
     }
-    var currentGif = 0;
+    var heroTimeout, currentGif = 0;
     function playHeroGifs() {
+      clearrTimeout(heroTimeout);
       Object.entries(heroes).forEach(([name, data], i, all) => {
         currentGif = currentGif % all.length;
         if (i != currentGif) return;
         if (data.loaded == false) return currentGif++;
-        // document.getElementById('hero_jpg').classList.add('d-none');
         document.getElementById('hero_' + name).classList.remove('d-none');
         restartGif(name);
-        setTimeout(_ => {
-          document.getElementById('hero_' + name).classList.add('d-none');
-          // document.getElementById('hero_jpg').classList.remove('d-none');
-          setTimeout(playHeroGifs, 4000);
+        heroTimeout = setTimeout(_ => {
+          document.querySelectorAll('.hero-gif').forEach(hg => hg.classList.add('d-none'));
+          heroTimeout = setTimeout(playHeroGifs, 4000);
         }, data.duration)
       });
       currentGif++
