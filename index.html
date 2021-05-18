@@ -209,7 +209,7 @@
     }
     var heroTimeout, currentGif = 0;
     function playHeroGifs() {
-      clearrTimeout(heroTimeout);
+      clearTimeout(heroTimeout);
       Object.entries(heroes).forEach(([name, data], i, all) => {
         currentGif = currentGif % all.length;
         if (i != currentGif) return;
