@@ -16,6 +16,7 @@
   <meta property="twitter:title" content="Snoozz - Tab & Window Snoozing">
   <meta property="twitter:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
   <meta property="twitter:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta name="author" content="Rohan Bhansali">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -26,12 +27,34 @@
   <link href="./css/common.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style type="text/css">
-    h4 a {
+    h4 a, #icons a, #icons a:hover {
       color: var(--orange);
       text-decoration: none;
+      white-space: nowrap;
     }
-    h4 a:hover {
+    h4 a:hover, #icons a {
       color: var(--pink)
+    }
+    #icons td, #icons th {
+      vertical-align: middle;
+    }
+    #icons td div, #icons th div {
+      display: flex;
+      align-items: center;
+    }
+    #icons td img, #icons th img {
+      max-height: 37.5px;
+    }
+    .icon-container {
+      width: 225px;
+    }
+    @media (max-width: 768px) {
+      #icons td div{
+        flex-wrap: wrap;
+      }
+      .icon-container {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -77,30 +100,279 @@
     <h4><a target="_blank" href="https://github.com/aurer/jsgradient">jsGradient</a> <small class="text-muted">(@Aurer)</small></h4>
     <p class="mb-5">Calculate steps within a gradient</p>
 
+    <h2>Icons</h2>
+    <p>Many of the icons' colours have been modified slightly to match the <i>a e s t h e t i c</i>&nbsp;&nbsp;I wanted.</p>
 
-    <h2 class="mt-5">Icons</h2>
-    <p>Most colours of the icons have been modified and outlines may have been slighlty adjusted (from <a target="_blank" href="https://www.flaticon.com">flaticon</a>).</p>
-
-    <h4><a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a></h4>
-    <p>Alarm, Straight Arrow, Bathtub, Calendar, Coffee, Egg, Pencil, Porthole, Octopus, Rocket, Safe, Sheep</p>
-    <h4><a target="_blank" href="https://dribbble.com/Justicon">Justicon</a></h4>
-    <p>Chai</p>
-    <h4><a target="_blank" href="https://www.flaticon.com/authors/icon-box">Icon Box</a></h4>
-    <p>Gear</p>
-    <h4><a target="_blank" href="https://dribbble.com/kiranshastry">Kiran Shastry</a></h4>
-    <p>Magnet</p>
-    <h4><a target="_blank" href="https://www.flaticon.com/authors/those-icons">Those Icons</a></h4>
-    <p>Magnifying Glass</p>
-    <h4><a target="_blank" href="https://www.behance.net/Photo3idea">photo3idea</a></h4>
-    <p>Oven</p>
-    <h4><a target="_blank" href="https://smashicons.com/">Smashicons</a></h4>
-    <p>Sheep</p>
-    <h4><a target="_blank" href="https://www.alfredocreates.com/">Alfredo Hernandez</a></h4>
-    <p>Sun</p>
-    <h4><a target="_blank" href="https://www.flaticon.com/authors/ddara">dDara</a></h4>
-    <p>Wii Fit Trainer</p>
-    <h4><a target="_blank" href="https://dribbble.com/vectorsmarket">Vectors Market</a></h4>
-    <p class="mb-5">Round Arrows</p>
+    <table id="icons" class="table table-striped" style="width: unset; overflow-x: auto;">
+      <thead>
+        <tr style="font-weight: 800">
+          <th class="px-md-3 px-2">What?</th>
+          <th>
+            <div class="px-4">
+              <img class="me-md-4 me-3" src="/icons/transparent.png">
+              Icon & Author
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="px-md-3 px-2">Open at Launch</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-startup.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-startup.png">
+                <a target="_blank" href="https://boyko.pictures/">BOYCO Pictures</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">One Hour from Now</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-in-an-hour.png">
+                <a target="_blank" href="https://www.behance.net/Photo3idea">photo3idea</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-in-an-hour.png">
+                <a target="_blank" href="https://smashicons.com/">Smashicons</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Today Morning</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-today-morning.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-today-morning.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Today Evening</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-today-evening.png">
+                <a target="_blank" href="https://dribbble.com/Justicon">Justicon</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-today-evening.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Tomorrow Morning</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-tom-morning.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/ddara">dDara</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-tom-morning.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Tomorrow Evening</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-tom-evening.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-tom-evening.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Weekend</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-weekend.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-weekend.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Monday</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-monday.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-monday.png">
+                <a target="_blank" href="https://flat-icons.com">Flat Icons</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Next Week</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-week.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-week.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Next Month</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-month.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-month.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Choose your Own Time</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-custom.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-custom.png">
+                <a target="_blank" href="https://flat-icons.com">Flat Icons</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Nap Room</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-nap-room.png">
+                <a target="_blank" href="https://www.iconfinder.com/Juicy_Fish">Juicy Fish</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-nap-room.png">
+                <a target="_blank" href="https://smashicons.com/">Smashicons</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Popup Window</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-window.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-window.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Popup Selected</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/human-selection.png">
+                <a target="_blank" href="https://dribbble.com/kiranshastry">Kiran Shastry</a>
+              </div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/animal-selection.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/hery-mery">Hery Mery</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Search</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/search.svg">
+                <a target="_blank" href="https://www.flaticon.com/authors/those-icons">Those Icons</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Settings</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/settings.svg">
+                <a target="_blank" href="https://www.flaticon.com/authors/icon-box">Icon Box</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Wake Up Now</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/sun.png">
+                <a target="_blank" href="https://www.alfredocreates.com/">Alfredo H.</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="px-md-3 px-2">Edit</td>
+          <td>
+            <div>
+              <div class="icon-container px-4 py-2">
+                <img class="me-md-4 me-3" src="/icons/edit.png">
+                <a target="_blank" href="https://www.flaticon.com/authors/freepik">Freepik</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
     <h2 class="mt-5">CSS Objects</h2>
     <h4><a target="_blank" href="https://jonitrythall.com/">Joni Trythall</a></h4>
