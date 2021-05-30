@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snoozz - Tab & Window Snoozing</title>
+  <meta name="title" content="Snoozz - Tab & Window Snoozing">
+  <meta name="description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snoozz.me/">
+  <meta property="og:title" content="Snoozz - Tab & Window Snoozing">
+  <meta property="og:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="og:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://snoozz.me/">
+  <meta property="twitter:title" content="Snoozz - Tab & Window Snoozing">
+  <meta property="twitter:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="twitter:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta name="author" content="Rohan Bhansali">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/animate.css" rel="stylesheet">
+  <link href="./css/common.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style type="text/css">
+    table td, table th {
+      vertical-align: middle;
+      padding: .5rem;
+    }
+    table td:not(:first-child) {
+      text-align: center;
+      border-left: 1px solid #6662;
+    }
+    table th, table td[colspan] {
+      font-weight: 800;
+    }
+    table tr td[colspan] {
+      margin: .5rem 0;
+      border-bottom: 2px solid var(--pink);
+    }
+    span {
+      display: inline-block;
+      transform: rotate(45deg);
+      height: 24px;
+      width: 12px;
+      border-bottom: 5px solid var(--orange);
+      border-right: 5px solid var(--orange);
+    }
+  </style>
+</head>
+<body class="d-flex flex-column">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./img/logo-hd.png" alt="snoozz logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./changelog.html">Changelog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./privacy.html">Privacy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-stripe"></div>
+  </nav>
+  <div class="container py-lg-5">
+    <h1><strong>Compatibility</strong></h1>
+    <p>Some browsers suck more than others.</p>
+    <table class="table table-hover" style="width: unset;">
+      <thead style="position: sticky; top: 0; background-color: #FFF; z-index: 6;">
+        <tr>
+          <th style="padding-top: 5rem;">Feature</th>
+          <th class="px-1 px-md-3" style="min-width: 125px; text-align: center;padding-top: 5rem;">Chrome/Edge</th>
+          <th class="px-1 px-md-3" style="min-width: 125px; text-align: center;padding-top: 5rem;">Firefox</th>
+          <th class="px-1 px-md-3" style="min-width: 125px; text-align: center;padding-top: 5rem;">Safari</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Snooze Tabs</td>
+          <td><span></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Snooze Windows</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Snooze Selected Tabs</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div>Popup</div></td>
+        </tr>
+        <tr>
+          <td>Snooze links using a context menu</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Snooze tabs using a context menu</td>
+          <td></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Disable invalid times dynamically</td>
+          <td></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Display icons next to snooze times</td>
+          <td></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div>Keyboard Shortcuts</div></td>
+        </tr>
+        <tr>
+          <td>Snooze tabs using keyboard shortcuts</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Open Snoozz using keyboard shortcuts</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div>Popup</div></td>
+        </tr>
+        <tr>
+          <td>Use the popup to select a time to to snooze tabs/windows</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Disable options when tabs or windows cannot be snoozed</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Use a date and time picker to select custom snooze times</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div>Nap Room</div></td>
+        </tr>
+        <tr>
+          <td>View your sleeping and woken up tabs</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Edit wake up times for sleeping tabs</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Wake up tabs manually or delete them from your history</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Fuzzy search your tabs by name, url, date, time, sleep state</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div>Settings</div></td>
+        </tr>
+        <!-- <tr>
+          <td>Accurately show used and available storage</td>
+          <td><span></span></td>
+          <td></td>
+          <td></td>
+        </tr> -->
+        <tr>
+          <td>Show currently used keyboard shortcuts</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Dark Mode</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Export and Import your data</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div>Sleeping</div></td>
+        </tr>
+        <tr>
+          <td>Save the name, url and icon for each sleepy tab</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Save the `pinned` state for a tab</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Preserve the order of tabs when snoozing a window</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div>Waking Up</div></td>
+        </tr>
+        <tr>
+          <td>Wake up tabs when the browser is already open</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td>Wake up tabs when the browser is launched</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Wake up tabs when computer comes back from standby</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div>Notifications</div></td>
+        </tr>
+        <tr>
+          <td>Show notifications when tabs/windows wake up automatically</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Show notifications when snoozing using the contextMenu</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Show notifications when snoozing using keyboard shortcuts</td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer class="pt-lg-5 pt-md-4 pt-3 pb-3 mt-auto">
+    <div class="footer-stripe"></div>
+    <div class="row container mx-auto">
+      <div class="col-12 col-md">
+        <h5>Snoozz</h5>
+        <small class="d-block mb-3 text-muted">2020-2021</small>
+        <h5>Author</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://rohan.xyz/">Rohan Bhansali</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Support</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
+          <li><a class="link-secondary" href="./compatibility.html">Compatibility</a></li>
+          <li><a target="_blank" class="link-secondary" href="mailto:rohanb10@gmail.com?subject=I%20want%20bad%20ideas%20and%20I%20want%20them%20now&body=Give%20them%20to%20me">Receive bad ideas</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary" href="./privacy.html">Privacy Policy</a></li>
+          <li><a class="link-secondary" href="./faq.html">FAQ</a></li>
+          <li><a class="link-secondary" href="./changelog.html">Changelog</a></li>
+          <li><a class="link-secondary" href="./attribution.html">Attribution</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Links</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">Chrome Web Store</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">Firefox Browser Add-Ons</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div id="hidden" class="d-none"></div>
+  <script src="./js/wow.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    new WOW({offset: 200}).init();
+  </script>
+</body>
+</html>
