@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snoozz - Tab & Window Snoozing</title>
+  <meta name="title" content="Snoozz - Tab & Window Snoozing">
+  <meta name="description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snoozz.me/">
+  <meta property="og:title" content="Snoozz - Tab & Window Snoozing">
+  <meta property="og:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="og:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://snoozz.me/">
+  <meta property="twitter:title" content="Snoozz - Tab & Window Snoozing">
+  <meta property="twitter:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="twitter:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta name="author" content="Rohan Bhansali">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/animate.css" rel="stylesheet">
+  <link href="./css/common.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style type="text/css">
+    body {
+      line-height: 1.4;
+    }
+    .question {
+      position: relative;
+      font-size: 1.4em;
+      padding: .5rem;
+      padding-right: 3em !important;
+      cursor: pointer;
+    }
+    .question.collapsed span {
+      border-color: transparent;
+    }
+    .question span {
+      border-bottom: 2px solid var(--pink);
+      transition: border-color .3s ease-in-out;
+    }
+    .answer {
+      font-size: 1.15rem;
+    }
+    .answer p:last-of-type {
+      margin-bottom: 0;
+    }
+    .question:after {
+      content: '';
+      width: 1.5em;
+      height: 1.5em;
+      right: 1rem;
+      top: 50%;
+      position: absolute;
+      transform: translateY(-50%) rotate(180deg);
+      transition: all .3s ease-in-out;
+      opacity: 1;
+      background-image: url('./img/dropdown.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      filter: invert(52%) sepia(38%) saturate(4954%) hue-rotate(313deg) brightness(91%) contrast(92%);
+    }
+    .question.collapsed:after {
+      filter: invert(68%) sepia(59%) saturate(489%) hue-rotate(355deg) brightness(102%) contrast(91%);
+      transform: translateY(-50%) rotate(0);
+    }
+    .hero-btn {
+      border-radius: 6px;
+      outline: none;
+      padding: 3px;
+      background-image: linear-gradient(90deg, var(--orange) 0%, var(--pink) 100%);
+    }
+    .hero-btn img {
+      border-radius: 3px;
+      max-height: 4rem;
+    }
+    .hero-btn.reverse {
+      background-image: linear-gradient(90deg, var(--pink) 0%, var(--orange) 100%);
+    }
+    .feature strong {
+      display: block;
+      margin-top: .5rem;
+      color: var(--pink);
+    }
+    @media (max-width: 768px) {
+      .question {
+        font-size: 1.2em;
+        padding: .25rem 0;
+      }
+      .list-group-item {
+        padding: .5rem;
+      }
+      .question:after {
+        right: .5rem;
+      }
+    }
+  </style>
+</head>
+<body class="d-flex flex-column">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./img/logo-hd.png" alt="snoozz logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./changelog.html">Changelog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./privacy.html">Privacy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-stripe"></div>
+  </nav>
+  <div class="container py-lg-5">
+    <h1><strong>Frequently Asked Questions</strong></h1>
+    <p>They're not really that frequent tbh.</p>
+    <div class="py-4" style="max-width: 900px;">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q1"><span class="px-1">What is Snoozz?</span></div>
+          <div class="collapse" id="q1">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>In short, Snoozz is a web extension (that you can install for <a target="_blank" href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">Chrome</a> and <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">Firefox</a>) that lets you declutter your tab browser. You can "snooze" tabs and windows, and select a time to wake them up later when you might actually want to use them.</p>
+                <p>Snoozz lets you remove tabs that you don't need now, but might need again tomorrow morning, or maybe on friday before you log off for the weekend.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q2"><span class="px-1">How will Snoozz benefit me?</span></div>
+          <div class="collapse" id="q2">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>Snoozz will help you organise your tabs and your time better, without you having to remember a huge list of tasks you still need to do.</p>
+                <p>Browsers with a lot of tabs open eat up your RAM very quickly, and while they are improving power management, it will not help you remove the number of tabs you have open.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q3"><span class="px-1">How will Snoozz fit into my normal computer usage?</span></div>
+          <div class="collapse" id="q3">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>The beauty of this extension is that it is designed for everyone. From programmers with 50+ tabs open, to business analysts needing to prioritise their time, and even to older users who don't even know what web extensions are.</p>
+                <p>Here are some simple use cases where Snoozz could help you:</p>
+                <ul class="mt-3">
+                  <li>You need to clock in and clock out of work everyday using a website which you can Snoozz to open up automatically every morning and evening.</li>
+                  <li class="mt-2">You're on Twitter looking for a tweet. Scrolling down your timeline, you see <a target="_blank" href="https://twitter.com/ryanbassil/status/1055483576970567685?s=20">Beiber eating a burrito sideways</a>. Obviously you want to see whats up with that, but you don't have time right now so you can just right click and Snoozz it to open on the weekend.</li>
+                  <li class="mt-2">You want to spend the weekend watching Netflix and researching didgeridoos on Wikipedia, not see the 20+ tabs of work tabs you have open because you need them for later. Snoozz your work tabs on Friday, and they will open for you automatically on Monday morning.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q4"><span class="px-1">Why is this better than all the other "snooze tabs" extensions?</span></div>
+          <div class="collapse" id="q4">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p class="mb-3">This isn't some super unique idea that didn't exist before 2020. What makes Snoozz stand out is the execution.</p>
+                <div class="feature">
+                  <strong>Speed</strong>
+                  Lightning quick - Snooze tabs in just two clicks. I want you to spend as little time as possible with the Snoozz popup open.
+                </div>
+                <div class="feature">
+                  <strong>Size</strong>
+                  Completely open-source and extremely lightweight - just under 125KB
+                </div>
+                <div class="feature">
+                  <strong>Privacy</strong>
+                  Doesn't track any of your data at all.
+                </div>
+                <div class="feature">
+                  <strong>Input Methods</strong>
+                  Keyboard Shortcuts and Right Click menus to snooze tabs even faster.
+                </div>
+                <div class="feature">
+                  <strong>Active Development</strong>
+                  Most of the other snooze extensions have been abandoned and don't support the latest and fastest browser APIs.
+                </div>
+                <div class="feature">
+                  <strong>Dark Mode</strong>
+                  Yes I'm highlighting this because no other snooze extension has this.
+                </div>
+                <div class="feature">
+                  <strong>Search</strong>
+                  Your Snoozz history is saved offline. You can search through it, snooze tabs again, edit snooze times and see tabs waking up soon.
+                </div>
+                <div class="feature">
+                  <strong>Accessibility</strong>
+                  Almost all Snozz features are usable using just your keyboard. Support for screen readers soon.
+                </div>
+                <div class="feature">
+                  <strong>Settings</strong>
+                  Tons of knobs and switches to fine tune the extension to the way you want it to be.
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q5"><span class="px-1">How can I install Snoozz on my device?</span></div>
+          <div class="collapse" id="q5">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>Snoozz is available on any browser that supports WebExtensions.</p>
+                <div class="d-flex flex-wrap justify-content-md-start justify-content-center">
+                  <div class="hero-btn reverse me-3 mb-3">
+                    <a href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">
+                      <img src="./img/cws.png">
+                    </a>
+                  </div>
+                  <div class="hero-btn me-3 mb-3">
+                    <a href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">
+                      <img src="./img/moz.png">
+                    </a>
+                  </div>
+                </div>
+                <p>If you know what you're doing and want to install the extension manually, download the <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/releases/latest/">latest release from github</a>.</p>
+                <p>If you're using a  laptop / desktop / tablet that can run full desktop version of Chrome, Firefox, Edge (and Safari kinda). Snoozz is not available on any mobile devices unfortunately (including iPads).</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q12"><span class="px-1">Is Snoozz available for other browsers like Safari?</span></div>
+          <div class="collapse" id="q12">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>I like Safari a lot, but Apple are crippling it by refusing to support basic WebExtension APIs like Notifications and Keyboard Shortcuts.</p>
+                <p>Snoozz is a free open source web extension. Unless someone is willing to pay an annual $100 Developer fee to Apple for me, I will not be able to publish Snoozz in the App Store. Dont understand why I need to bundle my 125kb extension into an MacOS app through Xcode and publish it to make it available to all users, when I can just drag and drop a zip file in other browsers like Chrome and Firefox to do the same thing.</p>
+                <p>If you know what you're doing, you <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/blob/master/docs/safari.md">can install Snoozz as an unsigned extension</a> for Safari, but I cannot guarantee that <a href="./compatibility.html">all the features</a> will work. Also it will be removed every time you close Safari. Nothing I can do about it.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q6"><span class="px-1">How do I update to the latest version?</span></div>
+          <div class="collapse" id="q6">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>If you installed Snoozz through the Chrome Web Store or the Mozilla Add-on Store, Snoozz will update automatically when a new version is released.</p>
+                <p>If you installed Snoozz manually, you can download the <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/releases/latest/">latest release from Github</a> and install it in your browser.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q7"><span class="px-1">I want to switch to Snoozz. Can my data be transferred?</span></div>
+          <div class="collapse" id="q7">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>Please <a target="_blank" href="mailto:rohanb10@gmail.com?subject=Importing%20my%20data%20to%20Snoozz&body=Browser%3A%0D%0AOS%3A%20Mac%20%2F%20Windows%0D%0AName%20of%20Extension%3A">let me know</a> which extension you are using and I try to make it possible to import data from that extension into Snoozz.</p>
+                <p>Snoozz supports importing and exporting of data, but it is limited at the moment.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q8"><span class="px-1">Is my data safe with Snoozz?</span></div>
+          <div class="collapse" id="q8">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>Snoozz doesnt collect any data or user behaviour or anything like that. Your data belongs to you. I don't even know what I could do with your data if I had it. The extension works completely offline and you cant take data from something that isnt connected to the internet.</p>
+                <p>Feel free to ready more on the <a href="./privacy.html">Privacy page</a> or browse through the <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing">source code</a> yourself to see what kinds of stuff I'm not collecting.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q9"><span class="px-1">How can I request a new feature?</span></div>
+          <div class="collapse" id="q9">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p><strong>Before you ask - I am already working on recurring snooze times, and using snoozz across multiple devices.</strong></p>
+                <p>Snoozz is in active development and I'm constantly adding new bells and whistles. You can <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues">view</a> the features/bugs being worked on Github, and <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">request a new feature</a> there too.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q10"><span class="px-1">How do I report issues I am facing with Snoozz?</span></div>
+          <div class="collapse" id="q10">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>You can <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">submit a bug report</a> on Github, or if you don't have an account you can <a target="_blank" href="mailto:rohanb10@gmail.com?subject=Snoozz%20Bug%3A&body=Browser%20(and%20version)%3A%0D%0AOS%3A%20Mac%20%2F%20Windows%0D%0AIssue%3A%0D%0A%0D%0APlease%20include%20any%20screenshots%20if%20applicable">email me</a> directly. It would be very helpful if you could include system details like OS (Windows/Mac), browser + version, and any screenshots too.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="question collapsed" data-bs-toggle="collapse" href="#q11"><span class="px-1">Where did you get your icons?</span></div>
+          <div class="collapse" id="q11">
+            <div class="p-2 ps-md-4 pe-md-5">
+              <div class="answer">
+                <p>They were all designed by much more talented artists than me. I just opened Photoshop and changed the colours to what I wanted them to be. You can view the names of all the artists on the <a href="./attribution.html">Attribution page</a>.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <footer class="pt-lg-5 pt-md-4 pt-3 pb-3 mt-auto">
+    <div class="footer-stripe"></div>
+    <div class="row container mx-auto">
+      <div class="col-12 col-md">
+        <h5>Snoozz</h5>
+        <small class="d-block mb-3 text-muted">2020-2021</small>
+        <h5>Author</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://rohan.xyz/">Rohan Bhansali</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Support</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
+          <li><a class="link-secondary" href="./compatibility.html">Compatibility</a></li>
+          <li><a target="_blank" class="link-secondary" href="mailto:rohanb10@gmail.com?subject=I%20want%20bad%20ideas%20and%20I%20want%20them%20now&body=Give%20them%20to%20me">Receive bad ideas</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary" href="./privacy.html">Privacy Policy</a></li>
+          <li><a class="link-secondary" href="./faq.html">FAQ</a></li>
+          <li><a class="link-secondary" href="./changelog.html">Changelog</a></li>
+          <li><a class="link-secondary" href="./attribution.html">Attribution</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Links</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">Chrome Web Store</a></li>
+          <li><a target="_blank" class="link-secondary" href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">Firefox Browser Add-Ons</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div id="hidden" class="d-none"></div>
+  <script src="./js/wow.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    new WOW({offset: 200}).init();
+  </script>
+</body>
+</html>
