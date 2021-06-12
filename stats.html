@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stats | Snoozz - Tab & Window Snoozing</title>
+  <meta name="title" content="Snoozz - Tab & Window Snoozing">
+  <meta name="description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snoozz.me/">
+  <meta property="og:title" content="Snoozz - Tab & Window Snoozing">
+  <meta property="og:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="og:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://snoozz.me/">
+  <meta property="twitter:title" content="Snoozz - Tab & Window Snoozing">
+  <meta property="twitter:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="twitter:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta name="author" content="Rohan Bhansali">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/animate.css" rel="stylesheet">
+  <link href="./css/common.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style type="text/css">
+    .choice-row {
+      padding: .5rem;
+      margin: .25rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 1;
+    }
+    .color-block {
+      padding: 0 .37rem;
+      border-radius: .5rem;
+      margin-left: 1rem;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      transform:perspective(150px) rotateX(0);
+      animation: 
+        f1-1 2s infinite linear,
+        f1-2 1s infinite linear alternate;
+    }
+    #bakery {
+      transform: rotate(-90deg);
+    }
+
+    @keyframes f1-1 {
+      100% {transform:perspective(150px) rotateX(360deg)}
+    }
+
+    @keyframes f1-2 {
+      0%,49.9% {background: var(--pink)}
+      50%,100% {background: var(--orange)}
+    }
+  </style>
+  <script async defer data-website-id="c03d7b02-81d7-423b-abc0-3627e8cd1577" src="https://stats.rohan.xyz/umami.js"></script>
+</head>
+<body class="d-flex flex-column">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand umami--click--snoozz-logo-header" href="./index.html">
+        <img src="./img/logo-hd.png" alt="snoozz logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link umami--click--changelog-header" href="./changelog.html">Changelog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link umami--click--privacy-header" href="./privacy.html">Privacy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active umami--click--stats-header" href="./stats.html">Stats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link umami--click--github-header" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-stripe"></div>
+  </nav>
+  <div class="container py-lg-5">
+    <h1><strong>Click Analytics</strong></h1>
+    <p>Snoozz collects a minimal amount of anonymous data to see which choices in the popup are being used the most.</p>
+    <p>You can read more about whats being collected <a target="_blank" href="">on Github</a>.</p>
+    <div class="d-flex justify-content-center">
+      <div class="loading my-5 py-5">
+        <div class="spinner"></div>
+      </div>
+    </div>
+    <div class="data row pt-3 pt-md-5 pb-0 pb-md-5 d-none">
+      <div class="col-12 col-md-6 choice-table">
+        <div class="header choice-row" style="font-weight: 800;">
+          <div style="text-decoration: underline;">Choice</div>
+          <div class="d-flex">
+            <span>Count</span>
+            <div class="color-block">&nbsp;</div>
+          </div>
+        </div>
+        <div id="startup" class="choice-row">
+          <div>On Next Startup</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="in-an-hour" class="choice-row">
+          <div>In One Hour</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="today-morning" class="choice-row">
+          <div>This Morning</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="today-evening" class="choice-row">
+          <div>This Evening</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="tom-morning" class="choice-row">
+          <div>Tomorrow Morning</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="tom-evening" class="choice-row">
+          <div>Tomorrow Evening</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="weekend" class="choice-row">
+          <div>Weekend</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="monday" class="choice-row">
+          <div>Next Monday</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="week" class="choice-row">
+          <div>Next Week</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="month" class="choice-row">
+          <div>Next Month</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+        <div id="custom" class="choice-row">
+          <div>Choose your own time</div>
+          <div class="d-flex">
+            <span class="count">-</span>
+            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 d-flex align-items-center">
+        <div class="d-flex justify-content-center align-items-center flex-column w-100 my-5">
+          <canvas id="bakery" width="300" height="300"></canvas>
+          <a href="doc"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="pt-lg-5 pt-md-4 pt-3 pb-0 mt-auto">
+    <div class="footer-stripe"></div>
+    <div class="row container mx-auto">
+      <div class="col-12 col-md">
+        <h5>Snoozz</h5>
+        <small class="d-block mb-3 text-muted">2020-2021</small>
+        <h5>Author</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary umami--click--rohanxyz-footer" href="https://rohan.xyz/">Rohan Bhansali</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Support</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary umami--click--bugs-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
+          <li><a target="_blank" class="link-secondary umami--click--suggest-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
+          <li><a class="link-secondary umami--click--compatibility-footer" href="./compatibility.html">Compatibility</a></li>
+          <li><a class="link-secondary umami--click--faq-footer" href="./faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary umami--click--privacy-footer" href="./privacy.html">Privacy</a></li>
+          <li><a class="link-secondary umami--click--stats-footer" href="./stats.html">Stats</a></li>
+          <li><a class="link-secondary umami--click--changelog-footer" href="./changelog.html">Changelog</a></li>
+          <li><a class="link-secondary umami--click--attribution-footer" href="./attribution.html">Attribution</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Links</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-secondary umami--click--github-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a></li>
+          <li><a target="_blank" class="link-secondary umami--click--cws-footer" href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">Chrome Web Store</a></li>
+          <li><a target="_blank" class="link-secondary umami--click--moz-footer" href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">Firefox Add-Ons</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div id="hidden" class="d-none"></div>
+  <script src="./js/wow.js"></script>
+  <script src="./js/charts.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    var COLORS = ['#a6cee3', '#537a5a', '#fada5e', '#d64933', '#58919d', '#cf995f', '#cab2d6', '#1f78b4', '#67cb6f', '#424B54', '#fe938c'];
+    var ninja;
+    async function load() {
+      var response = await fetch(`https://stats.snoozz.me/clicks`);
+      response.json().then(data => {
+        ninja = data;
+        buildTable(data);
+        buildChart(data);
+        document.querySelector('.loading').classList.add('d-none');
+      }); 
+    }
+
+    function buildTable(data) {
+      data.forEach((d, i) => {
+        document.querySelector(`#${d.option} .count`).innerText = d.count.toLocaleString();
+        document.querySelector(`#${d.option} .color-block`).style.backgroundColor = COLORS[i];
+      });
+      document.querySelector('.data').classList.remove('d-none');      
+    }
+
+    function buildChart(data) {
+      generatePieGraph('bakery', {
+        values: data.map(d => d.count),
+        colors: COLORS,
+        animation: true,
+        animationSpeed: 5,
+        doughnutHoleSize: 60,
+        offset: 1,
+        doughnutHoleColor: '#fff',
+        isStrokePie: { overlayStroke: true}
+      });
+    }
+    Array(Math.floor(Math.random() * COLORS.length)).fill().map(_ => COLORS.push(COLORS.shift())); // shuffle colors in order
+    load();
+    
+  </script>
+</body>
+</html>

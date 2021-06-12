@@ -37,6 +37,9 @@ nav .nav-link.active {
   display: none;
   animation-direction: alternate-reverse;
 }
+body > div.container {
+  min-height: 70vh;
+}
 @media (max-width: 993px) {
   nav.navbar {
     background-color: #FFF !important;
