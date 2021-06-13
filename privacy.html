@@ -27,6 +27,9 @@
   <link href="./css/common.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style type="text/css">
+    body {
+      line-height: 1.4;
+    }
     h4 {
       margin-top: 1.25rem;
       color: var(--pink);
@@ -55,7 +58,7 @@
             <a class="nav-link active umami--click--privacy-header" href="./privacy.html">Privacy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link umami--click--faq-header" href="./faq.html">FAQ</a>
+            <a class="nav-link umami--click--stats-header" href="./stats.html">Stats</a>
           </li>
           <li class="nav-item">
             <a class="nav-link umami--click--github-header" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
@@ -72,10 +75,12 @@
         <img style="max-height: 200px;" class="img-fluid " src="./img/safe.png">
       </div>
       <div class="col-md-8">
-        <p class="mb-4">Snoozz has never collected, aggregated or analysed your data in any way. Not even diagnostic or crash data.</p>
-        <p class="mb-4">All your tab and window data stays on your device without any network communication. It is not uploaded anywhere.</p>
-        <p class="mb-4">This extension is designed to work completely offline. Can't steal data if you're not connected to the internet.</p>
-        <p class="mb-4">Don't trust some random text on the internet? Take a look at <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing">the code</a> yourself.</p>
+        <p class="mb-4">Snoozz does not collect or analyse any personal data. Your tabs, windows, IPs, and geolocations are completely secure and never leave your device.</p>
+        <p class="mb-4">As of v2.4.3, Snoozz collects a minimal amount of anonymous click data to help improve Snoozz in the future. Only your selected choice (Tomorrow Morning, Next Week etc...) in the popup is transmitted.</p>
+
+        <p class="mb-4">For complete transparency, all collected data is available on the <a href="./stats.html">Snoozz Stats</a> page. The data passes through my own <a href="https://stats.snooze.com" target="_blank">server</a> (also <a target="_blank" href="https://github.com/rohanb10/snoozz-stats">open source</a>) and there are no 3rd party tools involved in any capacity.</p>
+        <p class="mb-4">An explanation of what data is being collected is described in great detail in this <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/39">post on Github</a>. If you hate progress and technological advancement, you can opt out on the Settings page of the extension.</p>
+        <p class="mb-4">Snoozz is still completely open source and you can <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing"> browse the code</a> yourself to make sure there is no funny business.</p>
       </div>
     </div>
     <h3><strong>Permissions</strong></h3>
@@ -122,14 +127,14 @@
           <li><a target="_blank" class="link-secondary umami--click--bugs-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
           <li><a target="_blank" class="link-secondary umami--click--suggest-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
           <li><a class="link-secondary umami--click--compatibility-footer" href="./compatibility.html">Compatibility</a></li>
-          <li><a target="_blank" class="link-secondary umami--click--bad-ideas" href="mailto:rohanb10@gmail.com?subject=I%20want%20bad%20ideas%20and%20I%20want%20them%20now&body=Give%20them%20to%20me">Receive bad ideas</a></li>
+          <li><a class="link-secondary umami--click--faq-footer" href="./faq.html">FAQ</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="link-secondary umami--click--privacy-footer" href="./privacy.html">Privacy Policy</a></li>
-          <li><a class="link-secondary umami--click--faq-footer" href="./faq.html">FAQ</a></li>
+          <li><a class="link-secondary umami--click--privacy-footer" href="./privacy.html">Privacy</a></li>
+          <li><a class="link-secondary umami--click--stats-footer" href="./stats.html">Stats</a></li>
           <li><a class="link-secondary umami--click--changelog-footer" href="./changelog.html">Changelog</a></li>
           <li><a class="link-secondary umami--click--attribution-footer" href="./attribution.html">Attribution</a></li>
         </ul>
