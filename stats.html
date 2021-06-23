@@ -28,13 +28,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style type="text/css">
     .choice-row {
-      padding: .5rem;
-      margin: .25rem 0;
+      padding: .75rem .5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       line-height: 1;
       border-bottom: 1px dashed rgba(0, 0, 0, .1);
+    }
+    .choice-row.highlight {
+      background-color: var(--orange);
     }
     .choice-row:first-child, .choice-row:last-child {
       border: none;
@@ -52,9 +54,6 @@
         f1-1 2s infinite linear,
         f1-2 1s infinite linear alternate;
     }
-    #bakery {
-      transform: rotate(-90deg);
-    }
 
     @keyframes f1-1 {
       100% {transform:perspective(150px) rotateX(360deg)}
@@ -71,7 +70,7 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
     <div class="container">
       <a class="navbar-brand umami--click--snoozz-logo-header" href="./index.html">
-        <img src="./img/logo-hd.png" alt="snoozz logo">
+        <img src="./img/logo.svg" alt="snoozz logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -95,112 +94,130 @@
     </div>
     <div class="navbar-stripe"></div>
   </nav>
-  <div class="container py-lg-5">
-    <h1><strong>Click Analytics</strong></h1>
-    <p>Snoozz collects a minimal amount of anonymous data to see which choices in the popup are being used the most.</p>
-    <p>You can read more about whats being collected <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/39">on Github</a>.</p>
-    <div class="d-flex justify-content-center">
-      <div class="loading my-5 py-5">
-        <div class="spinner"></div>
+  <div class="main-body w-100">
+    <div class="container py-lg-5">
+      <h1><strong>Analytics</strong></h1>
+      <p>Snoozz collects a minimal amount of anonymous data to see which choices and times are being used the most.</p>
+      <p>You can read more about whats being collected <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/39">on Github</a>.</p>
+      <div class="d-flex justify-content-center">
+        <div class="loading my-5 py-5" style="min-height: 70vh;">
+          <div class="spinner"></div>
+        </div>
+      </div>
+      <div class="click-data row pt-3 pt-md-5 d-none">
+        <div class="col-12 col-md-6 choice-table">
+          <div class="header choice-row" style="font-weight: 800;">
+            <div style="text-decoration: underline;">Choice</div>
+            <div class="d-flex">
+              <span>Count</span>
+              <div class="color-block">&nbsp;</div>
+            </div>
+          </div>
+          <div id="startup" class="choice-row">
+            <div>On Next Startup</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="in-an-hour" class="choice-row">
+            <div>In One Hour</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="today-morning" class="choice-row">
+            <div>This Morning</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="today-evening" class="choice-row">
+            <div>This Evening</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="tom-morning" class="choice-row">
+            <div>Tomorrow Morning</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="tom-evening" class="choice-row">
+            <div>Tomorrow Evening</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="weekend" class="choice-row">
+            <div>Weekend</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="monday" class="choice-row">
+            <div>Next Monday</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="week" class="choice-row">
+            <div>Next Week</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="month" class="choice-row">
+            <div>Next Month</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="custom" class="choice-row" style="border-bottom-color: #333">
+            <div>Choose your own time</div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: #ffff">&nbsp;</div>
+            </div>
+          </div>
+          <div id="total" class="choice-row">
+            <div><b>Total</b></div>
+            <div class="d-flex">
+              <span class="count">-</span>
+              <div class="color-block" style="background-color: transparent;">&nbsp;</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 d-flex align-items-center pb-md-3 pb-0">
+          <div class="d-flex justify-content-center align-items-center flex-column w-100 my-5">
+            <div id="bakery"></div>
+          </div>
+        </div>
+      </div>
+      <div class="time-data row pb-5 pb-md-0 d-none justify-content-center">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-6 px-0">
+            <div id="breakfast" class="text-center"></div>
+          </div>
+          <div class="col-md-6 px-0">
+            <div id="dinner" class="text-center"></div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="data row pt-3 pt-md-5 pb-0 pb-md-5 d-none">
-      <div class="col-12 col-md-6 choice-table">
-        <div class="header choice-row" style="font-weight: 800;">
-          <div style="text-decoration: underline;">Choice</div>
-          <div class="d-flex">
-            <span>Count</span>
-            <div class="color-block">&nbsp;</div>
-          </div>
-        </div>
-        <div id="startup" class="choice-row">
-          <div>On Next Startup</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="in-an-hour" class="choice-row">
-          <div>In One Hour</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="today-morning" class="choice-row">
-          <div>This Morning</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="today-evening" class="choice-row">
-          <div>This Evening</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="tom-morning" class="choice-row">
-          <div>Tomorrow Morning</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="tom-evening" class="choice-row">
-          <div>Tomorrow Evening</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="weekend" class="choice-row">
-          <div>Weekend</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="monday" class="choice-row">
-          <div>Next Monday</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="week" class="choice-row">
-          <div>Next Week</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="month" class="choice-row">
-          <div>Next Month</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-        <div id="custom" class="choice-row">
-          <div>Choose your own time</div>
-          <div class="d-flex">
-            <span class="count">-</span>
-            <div class="color-block" style="background-color: #ffff">&nbsp;</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 d-flex align-items-center">
-        <div class="d-flex justify-content-center align-items-center flex-column w-100 my-5">
-          <canvas id="bakery" width="300" height="300"></canvas>
-          <a href="doc"></a>
-        </div>
-      </div>
-    </div>
+    <div class="footer-stripe"></div>
   </div>
   <footer class="pt-lg-5 pt-md-4 pt-3 pb-0 mt-auto">
-    <div class="footer-stripe"></div>
     <div class="row container mx-auto">
       <div class="col-12 col-md">
         <h5>Snoozz</h5>
@@ -239,45 +256,114 @@
     </div>
   </footer>
   <div id="hidden" class="d-none"></div>
-  <script src="./js/wow.js"></script>
-  <script src="./js/charts.js"></script>
+  <script src="./js/gradientStep.js"></script>
+  <script src="./js/d3_v7.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script>
-    var COLORS = ['#a6cee3', '#537a5a', '#fada5e', '#d64933', '#58919d', '#cf995f', '#cab2d6', '#1f78b4', '#67cb6f', '#424B54', '#fe938c'];
-    var ninja;
-    async function load() {
+    var CLICK_COLOURS = ['#a6cee3', '#537a5a', '#fada5e', '#d64933', '#58919d', '#cf995f', '#cab2d6', '#1f78b4', '#67cb6f', '#424B54', '#fe938c'];
+    Array(Math.floor(Math.random() * CLICK_COLOURS.length)).fill().map(_ => CLICK_COLOURS.push(CLICK_COLOURS.shift())); // shuffle colors in order
+
+    var B_COLOURS = gradientSteps('#F3B845', '#DF4E76', 24);
+    var D_COLOURS = gradientSteps('#44CFF2', '#4C3BAA', 24);
+    var pack = Math.random() < .5 ? 'animal' : 'human';
+
+    async function loadClicks() {
       var response = await fetch(`https://stats.snoozz.me/clicks`);
       response.json().then(data => {
-        ninja = data;
-        buildTable(data);
-        buildChart(data);
+        buildClickTable(data);
+        buildClickChart(data);
         document.querySelector('.loading').classList.add('d-none');
       }); 
     }
 
-    function buildTable(data) {
+    function buildClickTable(data) {
       data.forEach((d, i) => {
         document.querySelector(`#${d.option} .count`).innerText = d.count.toLocaleString();
-        document.querySelector(`#${d.option} .color-block`).style.backgroundColor = COLORS[i];
+        document.querySelector(`#${d.option} .color-block`).style.backgroundColor = CLICK_COLOURS[i];
       });
-      document.querySelector('.data').classList.remove('d-none');      
+      document.querySelector('#total .count').innerText = data.map(d => d.count).reduce((a, b) => a + b);
+      document.querySelector('.click-data').classList.remove('d-none');     
     }
 
-    function buildChart(data) {
-      generatePieGraph('bakery', {
-        values: data.map(d => d.count),
-        colors: COLORS,
-        animation: true,
-        animationSpeed: 5,
-        doughnutHoleSize: 60,
-        offset: 1,
-        doughnutHoleColor: '#fff',
-        isStrokePie: { overlayStroke: true}
+    function buildClickChart(data) {
+      console.log('click', data);
+      var width = 400, height = 400, outer = 150, inner = 90;
+
+      var arc = d3.arc().outerRadius(outer).innerRadius(inner);
+      var higlightedArc= d3.arc().outerRadius(outer + 20).innerRadius(inner);
+      var pie = d3.pie().sort(null).value(d => d.count);
+      var svg = d3.select('#bakery').append('svg').attr('width', width).attr('height', height).append('g').attr('transform', `translate(${width / 2}, ${height / 2})`);
+      var g = svg.selectAll('.arc').data(pie(data)).enter().append('g');
+      svg.append('svg:image').attr('id', 'bread').attr('text-anchor', 'middle').attr('x', -32).attr('y', -32).attr('width', 64).attr('height', 64).attr('xlink:href', '../img/logo.svg');
+
+      g.append('path').attr('d', arc).style('fill', (d, i) => CLICK_COLOURS[i]).on('mouseover', function(e, d) {
+        d3.select(this).transition().attr('d', higlightedArc);
+        d3.select('#bread').attr('xlink:href', `../icons/${pack}-${d.data.option}.png`)
+        document.getElementById(d.data.option).classList.add('highlight');
+      }).on('mouseout', function(e, d) {
+        d3.select(this).transition().attr('d', arc);
+        d3.select('#bread').attr('xlink:href', '../img/logo.svg');
+        document.getElementById(d.data.option).classList.remove('highlight');
       });
+      
     }
-    Array(Math.floor(Math.random() * COLORS.length)).fill().map(_ => COLORS.push(COLORS.shift())); // shuffle colors in order
-    load();
-    
+    loadClicks();
+
+    async function loadTimes() {
+      var response = await fetch(`https://stats.snoozz.me/times`);
+      response.json().then(data => {
+        buildTimeChart(processTimeData(data));
+        document.querySelector('.loading').classList.add('d-none');
+      }); 
+    }
+
+    function processTimeData(data) {
+      // var rand =(min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+      // data.forEach(d => d.count = rand (0, 12));
+      var good = data.filter((d, i) => i % 2 == 0), bad = data.filter((d, i) => i % 2 == 1);
+      bad.forEach((b, i) => {
+        good[i].count += Math.ceil(b.count / 2);
+        good[i].index = i;
+        good[(i + 1) % good.length].count += Math.floor(b.count / 2);
+      });
+      return good;
+    }
+
+    function buildTimeChart(data) {
+      console.log('time', data);
+      buildRadial('breakfast', data.slice(0, data.length / 2), B_COLOURS);
+      buildRadial('dinner', data.slice(-data.length / 2), D_COLOURS);
+      document.querySelector('.time-data').classList.remove('d-none');
+    }
+
+    function formatTime(s) {
+      var h = parseInt(s.substring(0, 2)), m = parseInt(s.substring(2));
+      return `${h % 12 == 0 ? 12 : h % 12}:${m < 10 ? '0' : ''}${m} ${h > 11 ? 'PM' : 'AM'}`;
+    }
+    function buildRadial(selector, data, colours) {
+      var width = 400, height = 400, inner = 40, outer = 200;
+
+      var svg = d3.select('#' + selector).append('svg').attr('viewBox', `0 0 ${height} ${width}`).append('g').attr('transform', `translate(${width/2}, ${height/2})`);
+
+      var x = d3.scaleBand().range([0, 2 * Math.PI]).align(0).domain(data.map(d => d.when));
+      var y = d3.scaleRadial().range([inner, outer]).domain([0, Math.max(...data.map(d => d.count)) + 30]);
+
+      var donut = d3.arc().innerRadius(inner).outerRadius(d => y(d.count + 1)).startAngle(d => x(d.when)).endAngle(d => x(d.when) + x.bandwidth())
+      svg.append('text').attr('text-anchor', 'middle').attr('font-size', '1.5em').attr('y', 10).attr('id', 'hole_' + selector).text('');
+      svg.append('g').selectAll('path').data(data).join('path').attr('fill', (d, i) => colours[i]).attr('d', donut).on('mouseover', (e, d) => {
+        d3.select('#hole_' + selector).text(d.count);
+      }).on('mouseout', (e, d) => {
+        d3.select('#hole_' + selector).text('');
+      });
+
+      svg.append('g').selectAll('g').data(data).join('g')
+        .attr('text-anchor', d => (x(d.when) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? 'end' : 'start')
+        .attr('transform', d => `rotate(${((x(d.when) + x.bandwidth() / 2) * 180 / Math.PI - 90)})translate(${y(d.count) + 16}, 0)`)
+        .append('text').text(d => formatTime(d.when))
+        .attr('transform', d => (x(d.when) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? 'rotate(180)' : 'rotate(0)')
+        .style('font-size', '11px').attr('alignment-baseline', 'middle');
+    }
+    // loadTimes();
   </script>
 </body>
 </html>

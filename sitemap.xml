@@ -4,7 +4,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 
 <url>
@@ -31,6 +30,11 @@
   <loc>https://snoozz.me/attribution.html</loc>
   <lastmod>2021-05-20T18:08:57+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://snoozz.me/stats.html</loc>
+  <lastmod>2021-06-23T13:08:57+00:00</lastmod>
+  <priority>1</priority>
 </url>
 
 

@@ -44,7 +44,7 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
     <div class="container">
       <a class="navbar-brand umami--click--snoozz-logo-header" href="./index.html">
-        <img src="./img/logo-hd.png" alt="snoozz logo">
+        <img src="./img/logo.svg" alt="snoozz logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -68,50 +68,52 @@
     </div>
     <div class="navbar-stripe"></div>
   </nav>
-  <div class="container py-lg-5">
-    <h1><strong>Privacy</strong></h1>
-    <div class="row d-flex flex-row-reverse align-items-center">
-      <div data-delay="1s" class="col-md-4 py-5 text-center wow fadeIn">
-        <img style="max-height: 200px;" class="img-fluid " src="./img/safe.png">
-      </div>
-      <div class="col-md-8">
-        <p class="mb-4">Snoozz does not collect or analyse any personal data. Your tabs, windows, IPs, and geolocations are completely secure and never leave your device.</p>
-        <p class="mb-4">As of v2.4.3, Snoozz collects a minimal amount of anonymous click data to help improve Snoozz in the future. Only your selected choice (Tomorrow Morning, Next Week etc...) in the popup is transmitted.</p>
+  <div class="main-body w-100">
+    <div class="container py-lg-5">
+      <h1><strong>Privacy</strong></h1>
+      <div class="row d-flex flex-row-reverse align-items-center">
+        <div data-delay="1s" class="col-md-4 py-5 text-center wow fadeIn">
+          <img style="max-height: 200px;" class="img-fluid " src="./img/safe.png">
+        </div>
+        <div class="col-md-8">
+          <p class="mb-4">Snoozz does not collect or analyse any personal data. Your tabs, windows, IPs, and geolocations are completely secure and never leave your device.</p>
+          <p class="mb-4">As of v2.4.3, Snoozz collects a minimal amount of anonymous click data to help improve Snoozz in the future. Only your selected choice (Tomorrow Morning, Next Week etc...) in the popup is transmitted.</p>
 
-        <p class="mb-4">For complete transparency, all collected data is available on the <a href="./stats.html">Snoozz Stats</a> page. The data passes through my own <a href="https://stats.snooze.com" target="_blank">server</a> (also <a target="_blank" href="https://github.com/rohanb10/snoozz-stats">open source</a>) and there are no 3rd party tools involved in any capacity.</p>
-        <p class="mb-4">An explanation of what data is being collected is described in great detail in this <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/39">post on Github</a>. If you hate progress and technological advancement, you can opt out on the Settings page of the extension.</p>
-        <p class="mb-4">Snoozz is still completely open source and you can <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing"> browse the code</a> yourself to make sure there is no funny business.</p>
+          <p class="mb-4">For complete transparency, all collected data is available on the <a href="./stats.html">Snoozz Stats</a> page. The data passes through my own <a href="https://stats.snooze.com" target="_blank">server</a> (also <a target="_blank" href="https://github.com/rohanb10/snoozz-stats">open source</a>) and there are no 3rd party tools involved in any capacity.</p>
+          <p class="mb-4">An explanation of what data is being collected is described in great detail in this <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/39">post on Github</a>. If you hate progress and technological advancement, you can opt out on the Settings page of the extension.</p>
+          <p class="mb-4">Snoozz is still completely open source and you can <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing"> browse the code</a> yourself to make sure there is no funny business.</p>
+        </div>
       </div>
+      <h3><strong>Permissions</strong></h3>
+      <h4>alarms</h4>
+      <p class="mb-1">A single alarm is created (and reused) to wake up your tabs at the correct time.</p>
+      <p>If no tabs are waking up in the next hour, the alarm is set to be triggered again in an hour.</p>
+      <h4>notifications</h4>
+      <p>Send you notifications when a tab is reopened. (Can be turned off through your system preferences)</p>
+      <h4>tabs</h4>
+      <p class="mb-1">Used to fetch <strong>only</strong> the metadata from your tabs (title, url, favicon).</p>
+      <p>No metadata is passively recorded - it is only saved when users perform a specific action to snooze a tab or window.</p>
+      <h4>storage</h4>
+      <p class="mb-1">Used to store snoozed tabs and windows.</p>
+      <p class="mb-1">Used to store user preferences which can be configured the settings page.</p>
+      <p class="mb-1">Only local storage is used for this extension.</p>
+      <p>Old tabs are deleted periodically. You can adjust the frequency of this on the settings page.</p>
+      <h4>contextMenu</h4>
+      <p class="mb-1">Used to create the Snoozz submenu in your context menu.</p>
+      <p class="mb-1">Only appears when you right click on a link with a valid href attribute.</p>
+      <p>This can be turned off on your settings page.</p>
+      <h4>idle</h4>
+      <p>When the <span class="font-monospace">idle</span> state changes to <span class="font-monospace">active</span>, the extension will open any overdue tabs or recalculate the next alarm time.</p>
+      <h4>commands</h4>
+      <p class="mb-5">Used to configure keyboard shortcuts on compatible browsers. Shortcuts are off by default.</p>
+
+      <h3><strong>Data Retention</strong></h3>
+      <p class="mb-2">Deleting this extension will delete all your data and preferences. It cannot be recovered at all.</p>
+      <p class="mb-5">If you would like to retain your data, please export it from the settings page before removing the extension.</p>
     </div>
-    <h3><strong>Permissions</strong></h3>
-    <h4>alarms</h4>
-    <p class="mb-1">A single alarm is created (and reused) to wake up your tabs at the correct time.</p>
-    <p>If no tabs are waking up in the next hour, the alarm is set to be triggered again in an hour.</p>
-    <h4>notifications</h4>
-    <p>Send you notifications when a tab is reopened. (Can be turned off through your system preferences)</p>
-    <h4>tabs</h4>
-    <p class="mb-1">Used to fetch <strong>only</strong> the metadata from your tabs (title, url, favicon).</p>
-    <p>No metadata is passively recorded - it is only saved when users perform a specific action to snooze a tab or window.</p>
-    <h4>storage</h4>
-    <p class="mb-1">Used to store snoozed tabs and windows.</p>
-    <p class="mb-1">Used to store user preferences which can be configured the settings page.</p>
-    <p class="mb-1">Only local storage is used for this extension.</p>
-    <p>Old tabs are deleted periodically. You can adjust the frequency of this on the settings page.</p>
-    <h4>contextMenu</h4>
-    <p class="mb-1">Used to create the Snoozz submenu in your context menu.</p>
-    <p class="mb-1">Only appears when you right click on a link with a valid href attribute.</p>
-    <p>This can be turned off on your settings page.</p>
-    <h4>idle</h4>
-    <p>When the <span class="font-monospace">idle</span> state changes to <span class="font-monospace">active</span>, the extension will open any overdue tabs or recalculate the next alarm time.</p>
-    <h4>commands</h4>
-    <p class="mb-5">Used to configure keyboard shortcuts on compatible browsers. Shortcuts are off by default.</p>
-
-    <h3><strong>Data Retention</strong></h3>
-    <p class="mb-2">Deleting this extension will delete all your data and preferences. It cannot be recovered at all.</p>
-    <p class="mb-5">If you would like to retain your data, please export it from the settings page before removing the extension.</p>
+    <div class="footer-stripe"></div>
   </div>
   <footer class="pt-lg-5 pt-md-4 pt-3 pb-3 mt-auto">
-    <div class="footer-stripe"></div>
     <div class="row container mx-auto">
       <div class="col-12 col-md">
         <h5>Snoozz</h5>
