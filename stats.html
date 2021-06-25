@@ -280,9 +280,10 @@
       data.forEach((d, i) => {
         document.querySelector(`#${d.option} .count`).innerText = d.count.toLocaleString();
         document.querySelector(`#${d.option} .color-block`).style.backgroundColor = CLICK_COLOURS[i];
+        (new Image()).src = `${pack}-${d.option}.png`;
       });
       document.querySelector('#total .count').innerText = data.map(d => d.count).reduce((a, b) => a + b);
-      document.querySelector('.click-data').classList.remove('d-none');     
+      document.querySelector('.click-data').classList.remove('d-none');
     }
 
     function buildClickChart(data) {
@@ -312,14 +313,12 @@
     async function loadTimes() {
       var response = await fetch(`https://stats.snoozz.me/times`);
       response.json().then(data => {
-        buildTimeChart(processTimeData(data));
+        buildTimeChart(processTimeData(data.sort((a, b) => parseInt(a.when) - parseInt(b.when))));
         document.querySelector('.loading').classList.add('d-none');
       }); 
     }
 
     function processTimeData(data) {
-      // var rand =(min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-      // data.forEach(d => d.count = rand (0, 12));
       var good = data.filter((d, i) => i % 2 == 0), bad = data.filter((d, i) => i % 2 == 1);
       bad.forEach((b, i) => {
         good[i].count += Math.ceil(b.count / 2);
