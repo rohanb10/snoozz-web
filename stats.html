@@ -280,7 +280,7 @@
       data.forEach((d, i) => {
         document.querySelector(`#${d.option} .count`).innerText = d.count.toLocaleString();
         document.querySelector(`#${d.option} .color-block`).style.backgroundColor = CLICK_COLOURS[i];
-        (new Image()).src = `${pack}-${d.option}.png`;
+        (new Image()).src = `../icons/${pack}-${d.option}.png`;
       });
       document.querySelector('#total .count').innerText = data.map(d => d.count).reduce((a, b) => a + b);
       document.querySelector('.click-data').classList.remove('d-none');
