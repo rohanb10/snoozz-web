@@ -323,8 +323,8 @@
 
     var maxTimeCount = 0;
     function processTimeData(data) {
-      var rand =(min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-      data.forEach(d => d.count = rand (0, 12));
+      // var rand =(min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+      // data.forEach(d => d.count = rand (0, 12));
       maxTimeCount = Math.max(...data.map(d => d.count));
       var good = data.filter((d, i) => i % 2 == 0), bad = data.filter((d, i) => i % 2 == 1);
       bad.forEach((b, i) => {
@@ -384,8 +384,8 @@
       .attr('xlink:href', `../icons/${which == 'AM' ? 'animal' : 'human'}-nap-room.png`);
     }
 
-    // loadTimes();
     loadClicks();
+    if (window.location && window.location.search && window.location.search.length && window.location.search.indexOf('times') > -1) loadTimes();
   </script>
 </body>
 </html>
