@@ -2,7 +2,10 @@
   --pink: #DF4E76;
   --orange: #f3b845;
 }
-
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 body {
   line-height: 1.1;
   box-sizing: border-box;
