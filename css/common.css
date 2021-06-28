@@ -51,16 +51,50 @@ nav .nav-link.active {
   display: none;
   animation-direction: alternate-reverse;
 }
-body > div.container {
-  min-height: 70vh;
+.main-body > div.container {
+  min-height: 75vh;
+}
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    position: relative;
+  }
 }
 @media (max-width: 993px) {
   nav.navbar {
-    background-color: #FFF !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     margin-bottom: 1rem;
   }
   .navbar-stripe {
     display: block;
+  }
+  nav .container {
+    max-width: unset !important;
+  }
+  nav .navbar-nav li {
+    text-align: center;
+    font-weight: 600;
+  }
+  nav.navbar-light .navbar-nav .nav-link {
+    color: #FFF;
+  }
+  nav.navbar-light .navbar-nav .nav-link:hover, nav.navbar-light .navbar-nav .nav-link:focus {
+    color: var(--orange);
+  }
+  .navbar-brand, .navbar-burger  {
+    position: relative;
+    z-index: 5;
+  }
+  .navbar-expand-lg .navbar-collapse .navbar-nav {
+    padding-top: 2rem;
+  }
+  .navbar-expand-lg .navbar-collapse { 
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #061737;
   }
 }
 img {
@@ -80,7 +114,38 @@ body > .main-body {
 footer li {
   margin-bottom: .4rem;
 }
-footer
+.navbar-burger {
+  display: flex;
+  outline: none;
+  border: 0px;
+  background: transparent;
+  transition: all 250ms ease-out;
+  cursor: pointer;
+}
+.navbar-burger:before, .navbar-burger:after {
+  content: '';
+  width: 1.5rem;
+  height: 3px;
+  position: absolute;
+  background: var(--pink);
+  transition: all 250ms ease-out;
+  will-change: transform;
+}
+
+.navbar-burger.collapsed:before {
+  transform: translateY(-5px);
+}
+
+.navbar-burger.collapsed:after {
+  transform: translateY(5px);
+}
+.navbar-burger:before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.navbar-burger:after {
+  transform: translateY(0) rotate(-45deg);
+} 
 @keyframes spin {
   from {transform: rotate(0deg)}
   to {transform: rotate(360deg)}
