@@ -316,7 +316,7 @@
     async function loadTimes() {
       var response = await fetch(`https://stats.snoozz.me/times`);
       response.json().then(data => {
-        buildTimeChart(processTimeData(data.sort((a, b) => parseInt(a.when) - parseInt(b.when))));
+        buildTimeChart(data.sort((a, b) => parseInt(a.when) - parseInt(b.when)));
         document.querySelector('.loading').classList.add('d-none');
       }); 
     }
@@ -337,6 +337,7 @@
 
     function buildTimeChart(data) {
       console.log('time', data);
+      data = processTimeData(data);
       buildRadial('breakfast', 'AM', data.slice(0, data.length / 2), B_COLOURS);
       buildRadial('dinner', 'PM', data.slice(-data.length / 2), D_COLOURS);
       document.querySelector('.time-data').classList.remove('d-none');
