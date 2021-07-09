@@ -1,3 +1,5 @@
+
+
 :root {
   --pink: #DF4E76;
   --orange: #f3b845;
@@ -9,7 +11,7 @@ html {
 body {
   line-height: 1.1;
   box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 body > .main-body {
   background-color: #ffffff;
@@ -77,6 +79,7 @@ nav .nav-link.active {
   nav .navbar-nav li {
     text-align: center;
     font-weight: 600;
+    padding: .5rem 0;
   }
   nav.navbar-light .navbar-nav .nav-link {
     color: #FFF;
@@ -90,6 +93,7 @@ nav .nav-link.active {
   }
   .navbar-expand-lg .navbar-collapse .navbar-nav {
     padding-top: 2rem;
+    padding-bottom: 1rem;
   }
   .navbar-expand-lg .navbar-collapse { 
     z-index: 4;

@@ -25,7 +25,7 @@
   <link href="./css/bootstrap.min.css" rel="stylesheet">
   <link href="./css/animate.css" rel="stylesheet">
   <link href="./css/common.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style type="text/css">
     .choice-row {
       padding: .75rem .5rem;
@@ -53,10 +53,10 @@
       animation: f1-1 2s infinite linear, f1-2 1s infinite linear alternate;
     }
     #breakfast, #dinner {
-      transform: rotate(-7.5deg);
+      transform: rotate(-15deg);
     }
     #AM, #PM, #AM_TEXT, #PM_TEXT, #AM_LABEL, #PM_LABEL {
-      transform: rotate(7.5deg);
+      transform: rotate(15deg);
     }
 
     @keyframes f1-1 {
@@ -265,8 +265,8 @@
     var CLICK_COLOURS = ['#a6cee3', '#537a5a', '#fada5e', '#d64933', '#58919d', '#cf995f', '#cab2d6', '#1f78b4', '#67cb6f', '#424B54', '#fe938c'];
     Array(Math.floor(Math.random() * CLICK_COLOURS.length)).fill().map(_ => CLICK_COLOURS.push(CLICK_COLOURS.shift())); // shuffle colors in order
 
-    var B_COLOURS = gradientSteps('#F3B845', '#DF4E76', 24);
-    var D_COLOURS = gradientSteps('#44CFF2', '#4C3BAA', 24);
+    var B_COLOURS = gradientSteps('#F3B845', '#DF4E76', 12);
+    var D_COLOURS = gradientSteps('#44CFF2', '#4C3BAA', 12);
     var pack = Math.random() < .5 ? 'animal' : 'human';
 
     async function loadClicks() {
@@ -284,12 +284,13 @@
         document.querySelector(`#${d.option} .color-block`).style.backgroundColor = CLICK_COLOURS[i];
         (new Image()).src = `../icons/${pack}-${d.option}.png`;
       });
-      document.querySelector('#total .count').innerText = data.map(d => d.count).reduce((a, b) => a + b);
+      document.querySelector('#total .count').innerText = data.map(d => d.count).reduce((a, b) => a + b).toLocaleString();
       document.querySelector('.click-data').classList.remove('d-none');
     }
 
     function buildClickChart(data) {
       console.log('click', data);
+      var total = data.map(d => d.count).reduce((a, b) => a + b);
       var walls = document.getElementById('bakery').parentElement.getBoundingClientRect();
       walls = walls.width > 400 ? 380 : walls.width - 20;
       var width = walls, height = walls, outer = (walls - 40) / 2, inner = (walls - 160) / 2;
@@ -300,14 +301,17 @@
       var svg = d3.select('#bakery').append('svg').attr('width', width).attr('height', height).append('g').attr('transform', `translate(${width / 2}, ${height / 2})`);
       var g = svg.selectAll('.arc').data(pie(data)).enter().append('g');
       svg.append('svg:image').attr('id', 'bread').attr('text-anchor', 'middle').attr('x', -32).attr('y', -32).attr('width', 64).attr('height', 64).attr('xlink:href', '../img/logo.svg');
+      svg.append('text').attr('id', 'crumbs').attr('text-anchor', 'middle').attr('y', 64).attr('font-size', '1.25em').attr('style', 'display: block').text('');
 
       g.append('path').attr('d', arc).style('fill', (d, i) => CLICK_COLOURS[i]).on('mouseover', function(e, d) {
         d3.select(this).transition().attr('d', higlightedArc);
-        d3.select('#bread').attr('xlink:href', `../icons/${pack}-${d.data.option}.png`)
+        d3.select('#bread').attr('xlink:href', `../icons/${pack}-${d.data.option}.png`);
+        d3.select('#crumbs').text(Math.round(d.data.count * 100 / total) + '%');
         document.getElementById(d.data.option).classList.add('highlight');
       }).on('mouseout', function(e, d) {
         d3.select(this).transition().attr('d', arc);
         d3.select('#bread').attr('xlink:href', '../img/logo.svg');
+        d3.select('#crumbs').text('');
         document.getElementById(d.data.option).classList.remove('highlight');
       });
       
@@ -325,7 +329,6 @@
     function processTimeData(data) {
       // var rand =(min, max) => Math.floor(Math.random() * (max - min + 1) + min);
       // data.forEach(d => d.count = rand (0, 12));
-      maxTimeCount = Math.max(...data.map(d => d.count));
       var good = data.filter((d, i) => i % 2 == 0), bad = data.filter((d, i) => i % 2 == 1);
       bad.forEach((b, i) => {
         good[i].count += Math.ceil(b.count / 2);
@@ -338,6 +341,7 @@
     function buildTimeChart(data) {
       console.log('time', data);
       data = processTimeData(data);
+      maxTimeCount = Math.max(...data.map(d => d.count));
       buildRadial('breakfast', 'AM', data.slice(0, data.length / 2), B_COLOURS);
       buildRadial('dinner', 'PM', data.slice(-data.length / 2), D_COLOURS);
       document.querySelector('.time-data').classList.remove('d-none');
@@ -345,31 +349,30 @@
 
     function formatTime(s) {
       var h = parseInt(s.substring(0, 2)), m = parseInt(s.substring(2));
-      return `${h % 12 == 0 ? 12 : h % 12}:${m < 10 ? '0' : ''}${m}`;
+      return `${h % 12 == 0 ? 12 : h % 12} ${h > 11 ? 'P' : 'A'}M`;
     }
     function buildRadial(selector, which, data, colours) {
       var width = 400, height = 400, inner = 40, outer = 200;
-
+      data = processTimeData(data);
       var svg = d3.select('#' + selector).append('svg').attr('viewBox', `0 0 ${height} ${width}`).append('g').attr('transform', `translate(${width/2}, ${height/2})`);
 
       var x = d3.scaleBand().range([0, 2 * Math.PI]).align(0).domain(data.map(d => d.when));
-      var y = d3.scaleRadial().range([inner, outer]).domain([0, maxTimeCount + 30]);
+      var y = d3.scaleRadial().range([inner, outer]).domain([0, maxTimeCount + 250]);
 
       var donut = d3.arc().innerRadius(inner).outerRadius(d => y(d.count + 1)).startAngle(d => x(d.when)).endAngle(d => x(d.when) + x.bandwidth())
       svg.append('g').selectAll('path').data(data).join('path').attr('fill', (d, i) => colours[i]).attr('d', donut).on('mouseover', (e, d) => {
-        d3.select('#' + which + '_TEXT').text(d.count).attr('style', 'display: block');
+        d3.select('#' + which + '_TEXT').text((d.count * 10).toLocaleString()).attr('style', 'display: block');
         d3.select('#' + which).attr('style', 'display: none');
-      }).on('mouseout', (e, d) => {
+      }).on('mouseout', _ => {
         d3.select('#' + which + '_TEXT').text('').attr('style', 'display: none');
         d3.select('#' + which).attr('style', 'display: block');
       });
-      svg.append('text').attr('id', which + '_LABEL').attr('text-anchor', 'middle').attr('y', -18).attr('style', 'display: block').text(which);
-      svg.append('text').attr('id', which + '_TEXT').attr('text-anchor', 'middle').attr('y', 16).attr('font-size', '2em').attr('style', 'display: block').text('');
+      svg.append('text').attr('id', which + '_TEXT').attr('text-anchor', 'middle').attr('y', 6).attr('font-size', '1em').attr('style', 'display: block').text('');
 
       // data = data.filter((d, i) => i % 2 == 0);
       svg.append('g').selectAll('g').data(data).join('g')
         .attr('text-anchor', d => (x(d.when) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? 'end' : 'start')
-        .attr('transform', (d, i) => `rotate(${((x(d.when) + x.bandwidth() / 2) * 180 / Math.PI - 90)}) translate(${y(d.count) + 16}, 0)`)
+        .attr('transform', (d, i) => `rotate(${((x(d.when) + x.bandwidth() / 2) * 180 / Math.PI - 90)}) translate(${y(d.count) + 4}, 0)`)
         .append('text').text(d => formatTime(d.when))
         .attr('transform', d => (x(d.when) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? 'rotate(180)' : 'rotate(0)')
         .style('font-size', '11px').attr('alignment-baseline', 'middle');
@@ -378,10 +381,10 @@
       svg.append('svg:image')
       .attr('id', which)
       .attr('text-anchor', 'middle')
-      .attr('x', -20)
-      .attr('y', -16)
-      .attr('width', 40)
-      .attr('height', 40)
+      .attr('x', -18)
+      .attr('y', -18)
+      .attr('width', 36)
+      .attr('height', 36)
       .attr('xlink:href', `../icons/${which == 'AM' ? 'animal' : 'human'}-nap-room.png`);
     }
 
