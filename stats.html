@@ -361,7 +361,7 @@
 
       var donut = d3.arc().innerRadius(inner).outerRadius(d => y(d.count + 1)).startAngle(d => x(d.when)).endAngle(d => x(d.when) + x.bandwidth())
       svg.append('g').selectAll('path').data(data).join('path').attr('fill', (d, i) => colours[i]).attr('d', donut).on('mouseover', (e, d) => {
-        d3.select('#' + which + '_TEXT').text((d.count * 10).toLocaleString()).attr('style', 'display: block');
+        d3.select('#' + which + '_TEXT').text((d.count).toLocaleString()).attr('style', 'display: block');
         d3.select('#' + which).attr('style', 'display: none');
       }).on('mouseout', _ => {
         d3.select('#' + which + '_TEXT').text('').attr('style', 'display: none');
