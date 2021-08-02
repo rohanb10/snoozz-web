@@ -105,20 +105,20 @@
 <body class="d-flex flex-column">
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
     <div class="container">
-      <a class="navbar-brand umami--click--snoozz-logo-header" href="./index.html">
+      <a class="navbar-brand umami--click--snoozz-logo-header" href="/">
         <img src="./img/logo.svg" alt="snoozz logo">
       </a>
       <button class="navbar-burger d-block d-lg-none me-2 p-4 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"></button>
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link umami--click--changelog-header" href="./changelog.html">Changelog</a>
+            <a class="nav-link umami--click--changelog-header" href="./changelog">Changelog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link umami--click--privacy-header" href="./privacy.html">Privacy</a>
+            <a class="nav-link umami--click--privacy-header" href="./privacy">Privacy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link umami--click--stats-header" href="./stats.html">Stats</a>
+            <a class="nav-link umami--click--stats-header" href="./stats">Stats</a>
           </li>
           <li class="nav-item">
             <a class="nav-link umami--click--github-header" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
@@ -249,7 +249,7 @@
                 <div class="answer">
                   <p>I like Safari a lot, but Apple are crippling it by refusing to support basic WebExtension APIs like Notifications and Keyboard Shortcuts.</p>
                   <p>Snoozz is a free open source web extension. Unless someone is willing to pay an annual $100 Developer fee to Apple for me, I will not be able to publish Snoozz in the App Store. Dont understand why I need to bundle my 125kb extension into an MacOS app through Xcode and publish it to make it available to all users, when I can just drag and drop a zip file in other browsers like Chrome and Firefox to do the same thing.</p>
-                  <p>If you know what you're doing, you <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/blob/master/docs/safari.md">can install Snoozz as an unsigned extension</a> for Safari, but I cannot guarantee that <a href="./compatibility.html">all the features</a> will work. Also it will be removed every time you close Safari. Nothing I can do about it.</p>
+                  <p>If you know what you're doing, you <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/blob/master/docs/safari.md">can install Snoozz as an unsigned extension</a> for Safari, but I cannot guarantee that <a href="./compatibility">all the features</a> will work. Also it will be removed every time you close Safari. Nothing I can do about it.</p>
                 </div>
               </div>
             </div>
@@ -281,9 +281,9 @@
             <div class="collapse" id="q8">
               <div class="p-2 ps-md-4 pe-md-5">
                 <div class="answer">
-                  <p>Snoozz only collects any tiny amount of completely anonymous click data. Less than 1kb of data (the choice and time you selected) is transmitted every time you snooze/edit something. That's it. No other data is collected at all. This data will be used to improve Snoozz in the future. For full transparency, all data collected by Snoozz is visualised on the <a href="./privacy.html">Stats Page</a>. In fact, the server which the data is transmitted to is also 100% <a href="https://github.com/rohanb10/snoozz-stats" target="_blank">open source</a>. You can (but please don't) turn this off on the settings page. The extension is designed to work 100% offline if you don't trust the settings page.</p>
+                  <p>Snoozz only collects any tiny amount of completely anonymous click data. Less than 1kb of data (the choice and time you selected) is transmitted every time you snooze/edit something. That's it. No other data is collected at all. This data will be used to improve Snoozz in the future. For full transparency, all data collected by Snoozz is visualised on the <a href="./stats">Stats Page</a>. In fact, the server which the data is transmitted to is also 100% <a href="https://github.com/rohanb10/snoozz-stats" target="_blank">open source</a>. You can (but please don't) turn this off on the settings page. The extension is designed to work 100% offline if you don't trust the settings page.</p>
                   <p>If you know what you're doing, you can inspect the requests made in the Networks tab in your browser inspector and see that only ~10-15 characters are transmitted on every snooze.</p>
-                  <p>Feel free to ready more on the <a href="./privacy.html">Privacy page</a> or browse through the <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing">source code</a> yourself to make sure no funny business is going on.</p>
+                  <p>Feel free to ready more on the <a href="./privacy">Privacy page</a> or browse through the <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing">source code</a> yourself to make sure no funny business is going on.</p>
                 </div>
               </div>
             </div>
@@ -314,7 +314,7 @@
             <div class="collapse" id="q11">
               <div class="p-2 ps-md-4 pe-md-5">
                 <div class="answer">
-                  <p>They were all designed by much more talented artists than me. I just opened Photoshop and changed the colours to what I wanted them to be. You can view the names of all the artists on the <a href="./attribution.html">Attribution page</a>.</p>
+                  <p>They were all designed by much more talented artists than me. I just opened Photoshop and changed the colours to what I wanted them to be. You can view the names of all the artists on the <a href="./attribution">Attribution page</a>.</p>
                 </div>
               </div>
             </div>
@@ -339,17 +339,17 @@
         <ul class="list-unstyled text-small">
           <li><a target="_blank" class="link-light umami--click--bugs-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
           <li><a target="_blank" class="link-light umami--click--suggest-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
-          <li><a class="link-light umami--click--compatibility-footer" href="./compatibility.html">Compatibility</a></li>
-          <li><a class="link-light umami--click--faq-footer" href="./faq.html">FAQ</a></li>
+          <li><a class="link-light umami--click--compatibility-footer" href="./compatibility">Compatibility</a></li>
+          <li><a class="link-light umami--click--faq-footer" href="./faq">FAQ</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="link-light umami--click--privacy-footer" href="./privacy.html">Privacy</a></li>
-          <li><a class="link-light umami--click--stats-footer" href="./stats.html">Stats</a></li>
-          <li><a class="link-light umami--click--changelog-footer" href="./changelog.html">Changelog</a></li>
-          <li><a class="link-light umami--click--attribution-footer" href="./attribution.html">Attribution</a></li>
+          <li><a class="link-light umami--click--privacy-footer" href="./privacy">Privacy</a></li>
+          <li><a class="link-light umami--click--stats-footer" href="./stats">Stats</a></li>
+          <li><a class="link-light umami--click--changelog-footer" href="./changelog">Changelog</a></li>
+          <li><a class="link-light umami--click--attribution-footer" href="./attribution">Attribution</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">

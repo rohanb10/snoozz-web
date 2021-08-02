@@ -38,7 +38,11 @@
       display: inline-block;
       background-color: var(--orange);
       border-radius: .25rem;
-      padding: 1px 4px;
+      padding: 2px 6px;
+    }
+    .main-container small.wip:first-of-type:after {
+      content: 'Work In Progress';
+      background-color: var(--bs-secondary);
     }
     h4 ~ p:before {
       content: '- ';
@@ -54,20 +58,20 @@
 <body class="d-flex flex-column">
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
     <div class="container">
-      <a class="navbar-brand umami--click--snoozz-logo-header" href="./index.html">
+      <a class="navbar-brand umami--click--snoozz-logo-header" href="/">
         <img src="./img/logo.svg" alt="snoozz logo">
       </a>
       <button class="navbar-burger d-block d-lg-none me-2 p-4 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"></button>
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active umami--click--changelog-header" href="./changelog.html">Changelog</a>
+            <a class="nav-link active umami--click--changelog-header" href="./changelog">Changelog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link umami--click--privacy-header" href="./privacy.html">Privacy</a>
+            <a class="nav-link umami--click--privacy-header" href="./privacy">Privacy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link umami--click--stats-header" href="./stats.html">Stats</a>
+            <a class="nav-link umami--click--stats-header" href="./stats">Stats</a>
           </li>
           <li class="nav-item">
             <a class="nav-link umami--click--github-header" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
@@ -82,11 +86,22 @@
 
       <h1><strong>Changelog</strong></h1>
 
-      <h4 class="mt-4">v2.4.4.3</h4>
+      <h4 class="mt-4">v2.5.0</h4>
+      <small class="text-muted mb-lg-4 mb-3 d-block wip">August 2021</small>
+      <p>Recurring Snooze Times</p>
+      <p>Duplicate Sleeping Tabs</p>
+      <p>Selected Tabs grouped together</p>
+      <p>Keyboard Shortcuts in the Popup</p>
+      <p>Hide sections in the Nap Room</p>
+      <p>Snooze other extension / add-on pages</p>
+      <p>"System" option for selecting a dark/light theme</p>
+      
+
+      <h4 class="mt-5">v2.4.4.3</h4>
       <small class="text-muted mb-lg-4 mb-3 d-block">June 2021</small>
       <p>Start tracking snooze times. Will be available soon on the Stats page</p>
 
-      <h4 class="mt-4">v2.4.4.2</h4>
+      <h4 class="mt-5">v2.4.4.2</h4>
       <small class="text-muted mb-lg-4 mb-3 d-block">June 2021</small>
       <p>New Settings: Choose which day the week starts on</p>
       <p>Fix firefox context menu colours</p>
@@ -99,14 +114,14 @@
         <li><code>s</code> - selected</li>
       </ul>
 
-      <h4 class="mt-4">v2.4.4</h4>
+      <h4 class="mt-5">v2.4.4</h4>
       <small class="text-muted mb-lg-4 mb-3 d-block">June 2021</small>
       <p>Use minutes in your preset "morning" and "evening" times</p>
       <p>Choose Morning/Evening/Current Time directly from the popup</p>
       <p>Update Animal Icons to be more consistent</p>
       <p>Wait for a network connection before waking up tabs after your computer wakes up</p>
 
-      <h4 class="mt-4">v2.4.3</h4>
+      <h4 class="mt-5">v2.4.3</h4>
       <small class="text-muted mb-lg-4 mb-3 d-block">June 2021</small>
       <p>Collect anonymous click data</p>
       <p>New settings: enable and disable Notifications/Analytics</p>
@@ -114,23 +129,23 @@
       <p>Reduce overall file size</p>
       <p>Lots of Safari fixes and a new easier Safari build script</p>
 
-      <h4 class="mt-4">v2.4.2.1</h4>
+      <h4 class="mt-5">v2.4.2.1</h4>
       <small class="text-muted mb-lg-4 mb-3 d-block">May 2021</small>
       <p>Minor bug fixes</p>
 
-      <h4 class="mt-4">v2.4.2</h4>
+      <h4 class="mt-5">v2.4.2</h4>
       <small class="text-muted mb-lg-4 mb-3 d-block">May 2021</small>
       <p>Introducing Icon Themes - Starting with a shiny new Animal theme. Change your theme on the Settings page.</p>
       <p>Setting to choose between 12 Hour / 24 Hour time formats</p>
       <p>Open links from the Nap Room without waking up a tab</p>
       <p>Bug fixes on the Rise & Shine / Nap Room pages</p>
 
-      <h4 class="mt-4">v2.4.1</h4>
+      <h4 class="mt-5">v2.4.1</h4>
       <small class="text-muted mb-lg-4 mb-3 d-block">May 2021</small>
       <p>Show number of search results in the Nap Room</p>
       <p>Miscellaneous ui related fixes</p>
 
-      <h4 class="mt-4">v2.4.0</h4>
+      <h4 class="mt-5">v2.4.0</h4>
       <small class="text-muted mb-lg-4 mb-3 d-block">May 2021</small>
       <p>Edit Snoozz times for sleeping tabs 🎉</p>
       <p>Snooze Again for awoken tabs</p>
@@ -262,17 +277,17 @@
         <ul class="list-unstyled text-small">
           <li><a target="_blank" class="link-light umami--click--bugs-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
           <li><a target="_blank" class="link-light umami--click--suggest-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
-          <li><a class="link-light umami--click--compatibility-footer" href="./compatibility.html">Compatibility</a></li>
-          <li><a class="link-light umami--click--faq-footer" href="./faq.html">FAQ</a></li>
+          <li><a class="link-light umami--click--compatibility-footer" href="./compatibility">Compatibility</a></li>
+          <li><a class="link-light umami--click--faq-footer" href="./faq">FAQ</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="link-light umami--click--privacy-footer" href="./privacy.html">Privacy</a></li>
-          <li><a class="link-light umami--click--stats-footer" href="./stats.html">Stats</a></li>
-          <li><a class="link-light umami--click--changelog-footer" href="./changelog.html">Changelog</a></li>
-          <li><a class="link-light umami--click--attribution-footer" href="./attribution.html">Attribution</a></li>
+          <li><a class="link-light umami--click--privacy-footer" href="./privacy">Privacy</a></li>
+          <li><a class="link-light umami--click--stats-footer" href="./stats">Stats</a></li>
+          <li><a class="link-light umami--click--changelog-footer" href="./changelog">Changelog</a></li>
+          <li><a class="link-light umami--click--attribution-footer" href="./attribution">Attribution</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
