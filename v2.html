@@ -81,39 +81,37 @@
     <div class="container mb-2">
       <div class="row">
         <div class="col-lg-7 corners p-lg-5 p-3">
-          <video id="hero" autoplay loop muted playsinline class="ratio corners" alt="Video preview of the Snoozz extension in use">
-            <source src="images/vid.webm" type="video/webm">
-            <source src="images/vid.mp4" type="video/mp4">
+          <video id="hero" autoplay loop muted playsinline class="ratio corners" poster="images/vid-thumb.jpg" src="images/vid.webm" type="video/webm" alt="Video preview of the Snoozz extension in use">
           </video>
         </div>
         <div class="col-lg-5 d-flex flex-column justify-content-center align-items-center py-md-3 py-2">
           <div class=" py-lg-5 p-3 corners" style="background-color: #FEEACA">
             <img class="img-fluid px-lg-5 p-2" src="images/snoozz-colour.png" alt="Snoozz">
             <h5 class="text-center pt-4" data-delay="1s">A WebExtension to put tabs to sleep, <br class="d-none d-xl-block">and automatically wake them up later.</h5>
-            <div class="downloads w-100 px-xl-5 px-3 pt-lg-4 pt-4 d-lg-block d-flex flex-wrap justify-content-center">
+            <div class="downloads w-100 px-xl-5 px-lg-3 pt-lg-4 pt-4 d-lg-block d-flex flex-wrap justify-content-center">
               <div class="d-flex justify-content-around px-0 px-lg-4 py-2">
                 <a href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb" class="link mx-1" style="--deg: -2deg">
-                  <img class="img-fluid" src="images/chrome.png">
+                  <img class="img-fluid" alt="link to chrome web store" src="images/chrome.png">
                 </a>
                 <a href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/" class="link mx-1" style="--deg: 3deg">
-                  <img class="img-fluid" src="images/firefox.png">
+                  <img class="img-fluid" alt="link to firefox addon store" src="images/firefox.png">
                 </a>
               </div>
               <div class="d-flex justify-content-around px-0 px-lg-4 py-2">
                 <a href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb" class="link mx-1" style="--deg: 2deg">
-                  <img class="img-fluid" src="images/edge.png">
+                  <img class="img-fluid" alt="link to chrome web store" src="images/edge.png">
                 </a>
                 <a href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb" class="link mx-1" style="--deg: -4deg">
-                  <img class="img-fluid" src="images/brave.png">
+                  <img class="img-fluid" alt="link to chrome web store" src="images/brave.png">
                 </a>
               </div>
               <div class="d-flex justify-content-around px-0 px-lg-4 py-2">
                 <a href="https://github.com/rohanb10/snoozz-tab-snoozing/blob/master/docs/safari.md" class="link mx-1" style="--deg: 4deg">
-                  <img class="img-fluid" src="images/safari.png">
+                  <img class="img-fluid" alt="link to a github document with safari install instructions" src="images/safari.png">
                 </a>
-                <a class="link mx-1 d-lg-block d-none" style="opacity: 0; pointer-events: none;">
-                  <img class="img-fluid" src="images/safari.png">
-                </a>
+                <div class="link mx-1 d-lg-block d-none" style="opacity: 0; pointer-events: none;">
+                  <img class="img-fluid" alt="this is a hidden image" src="images/brave.png">
+                </div>
               </div>
             </div>
           </div>
@@ -122,39 +120,61 @@
       <div class="row py-md-3 py-0">
         <div class="col-md-4 my-md-0 my-2">
           <div class="corners p-3 ratio ratio-1x1" style="background-color: #d6d2f7">
-            <div class="d-flex flex-column justify-content-center align-items-center">hi</div>
+            <div class="d-flex flex-column justify-content-center align-items-center">tabs, windows, selections</div>
           </div>
         </div>
         <div class="col-md-4 my-md-0 my-2">
           <div class="corners p-3 ratio ratio-1x1" style="background-color: #aef0be">
-            <div class="d-flex flex-column justify-content-center align-items-center">hi</div>
+            <div class="d-flex flex-column justify-content-center align-items-center">recurring snoozes</div>
           </div>
         </div>
         <div class="col-md-4 my-md-0 my-2">
           <div class="corners p-3 ratio ratio-1x1" style="background-color: #c0e5fc">
-            <div class="d-flex flex-column justify-content-center align-items-center">hi</div>
+            <div class="d-flex flex-column justify-content-center align-items-center">nap room</div>
           </div>
         </div>
       </div>
       <div class="row py-md-2 py-0">
         <div class="col-md-3 my-md-0 my-2">
           <div class="corners p-3 ratio ratio-1x1" style="background-color: #ffa09f">
-            <div class="d-flex flex-column justify-content-center align-items-center">hi</div>
+            <div class="d-flex flex-column justify-content-center align-items-center">context menu</div>
           </div>
         </div>
         <div class="col-md-3 my-md-0 my-2">
           <div class="corners p-3 ratio ratio-1x1" style="background-color: #FBECAB">
-            <div class="d-flex flex-column justify-content-center align-items-center">hi</div>
+            <div class="d-flex flex-column justify-content-center align-items-center">keyboard shortcuts</div>
           </div>
         </div>
         <div class="col-md-3 my-md-0 my-2">
           <div class="corners p-3 ratio ratio-1x1" style="background-color: #BBBFC9">
-            <div class="d-flex flex-column justify-content-center align-items-center">hi</div>
+            <div class="d-flex flex-column justify-content-center align-items-center">blazing fast</div>
           </div>
         </div>
         <div class="col-md-3 my-md-0 my-2">
           <div class="corners p-3 ratio ratio-1x1" style="background-color: #F2D2A1">
-            <div class="d-flex flex-column justify-content-center align-items-center">hi</div>
+            <div class="d-flex flex-column justify-content-center align-items-center">open source</div>
+          </div>
+        </div>
+      </div>
+      <div class="row py-md-2 py-0">
+        <div class="col-md-3 my-md-0 my-2">
+          <div class="corners p-3 ratio ratio-1x1" style="background-color: #ffa09f">
+            <div class="d-flex flex-column justify-content-center align-items-center">dark mode</div>
+          </div>
+        </div>
+        <div class="col-md-3 my-md-0 my-2">
+          <div class="corners p-3 ratio ratio-1x1" style="background-color: #FBECAB">
+            <div class="d-flex flex-column justify-content-center align-items-center">themes</div>
+          </div>
+        </div>
+        <div class="col-md-3 my-md-0 my-2">
+          <div class="corners p-3 ratio ratio-1x1" style="background-color: #BBBFC9">
+            <div class="d-flex flex-column justify-content-center align-items-center">offline</div>
+          </div>
+        </div>
+        <div class="col-md-3 my-md-0 my-2">
+          <div class="corners p-3 ratio ratio-1x1" style="background-color: #F2D2A1">
+            <div class="d-flex flex-column justify-content-center align-items-center">customisable / coming soon</div>
           </div>
         </div>
       </div>
