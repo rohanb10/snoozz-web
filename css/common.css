@@ -121,6 +121,10 @@ body > .main-body {
 footer li {
   margin-bottom: .4rem;
 }
+footer a.link-light:hover {
+  color: var(--orange);
+  text-decoration-color: var(--orange);
+}
 .navbar-burger {
   display: flex;
   outline: none;
