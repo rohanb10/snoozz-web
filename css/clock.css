@@ -79,7 +79,7 @@
 	width: 2px;
 }
 .clock-min {
-	animation-duration: 4s;
+	animation-duration: 2.5s;
 }
 .clock-hour {
 	left: -2px;
