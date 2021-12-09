@@ -25,6 +25,7 @@
   <link href="./css/bootstrap.min.css" rel="stylesheet">
   <link href="./css/animate.css" rel="stylesheet">
   <link href="./css/common.css" rel="stylesheet">
+  <link href="./css/clock.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style type="text/css">
     .corners {
@@ -65,7 +66,7 @@
       text-align: center;
       color: #888;
       min-height: 3rem;
-      line-height: 1.2;
+      line-height: 1.25;
     }
     .tile-smaller .tile-text > div {
       min-height: 2.5rem;
@@ -177,11 +178,11 @@
           </div>
         </div>
       </div>
-      <div class="row py-md-3 py-0">
-        <div class="col-md-4 my-md-0 my-2">
+      <div class="row py-lg-3 py-0">
+        <div class="col-lg-4 col-md-12 my-lg-0 my-2">
           <div class="tile corners ratio ratio-1x1" style="background-color: #C5E0D8">
             <div id="snooze_anything" class="d-flex flex-column justify-content-between align-items-center">
-              <div class="buttons mt-lg-4 mt-0 p-xl-3 p-1 d-flex justify-content-around w-100 corners" style="background-color: #0001; line-height: 1;">
+              <div class="buttons mt-lg-4 mt-0 p-md-3 p-2 d-flex justify-content-around w-100 corners" style="background-color: #0001; line-height: 1;">
                 <span data-button="tab" class="active">This Tab</span>
                 <span data-button="window">Window</span>
                 <span data-button="selection">Selection</span>
@@ -200,10 +201,26 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 my-md-0 my-2">
+        <div class="col-lg-4 col-md-6 my-lg-0 my-2">
           <div class="tile corners ratio ratio-1x1" style="background-color: #FFD3BD">
             <div class="d-flex flex-column justify-content-between align-items-center">
-              <div></div>
+              <div class="position-relative w-100 mt-5 mb-3" style="min-height: 200px;">
+                <div class="clock-base">
+                  <div class="clock-alarm"></div>
+                  <div class="clock-border"></div>
+                  <div class="clock-bg"></div>
+                  <div class="clock-notch top"></div>
+                  <div class="clock-notch right"></div>
+                  <div class="clock-notch bottom"></div>
+                  <div class="clock-notch left"></div>
+                  <div class="clock-min"></div>
+                  <div class="clock-hour"></div>
+                  <div class="clock-trigger clock-trigger-1"></div>
+                  <div class="clock-trigger clock-trigger-2"></div>
+                  <div class="clock-trigger clock-trigger-3"></div>
+                  <div class="clock-center"></div>
+                </div>
+              </div>
               <div class="tile-text">
                 <h3>Recurring snoozes</h3>
                 <div>
@@ -213,10 +230,12 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 my-md-0 my-2">
+        <div class="col-lg-4 col-md-6 my-lg-0 my-2">
           <div class="tile corners ratio ratio-1x1" style="background-color: #C1BED1">
             <div class="d-flex flex-column justify-content-between align-items-center">
-              <div></div>
+              <div class="pt-5 pb-3">
+                <img class="img-fluid tile-icon" src="images/nap.gif" style="max-width: 12rem">
+              </div>
               <div class="tile-text">
                 <h3>Nap Room</h3>
                 <div>
@@ -277,10 +296,10 @@
           <div class="tile corners ratio ratio-1x1" style="background-color: #FECBCB">
             <div class="d-flex flex-column justify-content-between align-items-center p-0" style="background-image: url('images/snail.gif'); background-size: cover;">
               <div class="py-5 my-5 my-lg-0">&nbsp;</div>
-              <div class="tile-text pb-2 px-2 pt-lg-0 pt-5 mt-lg-0 mt-5">
+              <div class="tile-text pb-2 px-3 pt-lg-0 pt-5 mt-lg-0 mt-5">
                 <h4>Blazing Fast</h4>
                 <div>
-                  <div>The entire extension is ~130kb. <br>That's smaller than this snail.</div>
+                  <div>The entire extension is ~130kb, about half the size of this snail.</div>
                 </div>
               </div>
             </div>
@@ -349,7 +368,7 @@
       </div>
       <div class="row my-5">
         <div class="col-12 text-center my-lg-5">
-          <h2>Over <span class="d-inline-block text-center" style="min-width: 8rem">
+          <h2>A total of <span class="d-inline-block text-center" style="min-width: 8rem">
             <span id="snoozes" class="d-inline-block px-2 py-1 rounded" style="background-color: var(--orange);">0</span>
           </span> tabs snoozed since mid 2021.</h2>
           <div class="pt-3 text-center"><a style="color: var(--pink);" href="./stats">See all the Stats ></a></div>

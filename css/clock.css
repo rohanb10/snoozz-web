@@ -1,0 +1,179 @@
+* {
+	box-sizing: border-box;
+}
+.clock-base, .clock-bg, .clock-notch, .clock-center, .clock-hour, .clock-min, .clock-hour:before, .clock-min:before, .clock-trigger, .clock-trigger:before, .clock-triggers, .clock-alarm, .clock-border {
+	position: absolute;
+	z-index: 5;
+}
+.clock-base {
+	height: 180px;
+	width: 180px;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	border-radius: 100%;
+}
+.clock-bg, .clock-border, .clock-alarm, .clock-center {
+	margin: auto;
+	height: 180px;
+	width: 180px;
+	border-radius: 100%;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+.clock-bg {
+	z-index: 4;
+	background-color: #FFF;
+}
+.clock-border {
+	z-index: 5;
+	border: 10px solid #5373cf;
+}
+.clock-notch {
+	background-color: #0009;
+}
+.clock-notch.top, .clock-notch.bottom {
+	width: 3px;
+	height: 8px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+.clock-notch.top {
+	top: 10px;
+}
+.clock-notch.bottom {
+	bottom: 10px;
+}
+.clock-notch.left, .clock-notch.right {
+	width: 8px;
+	height: 3px;
+	top: 10px;
+	bottom: 10px;
+	margin: auto 0;
+}
+.clock-notch.right {
+	right: 10px;
+}
+.clock-notch.left {
+	left: 10px;
+}
+.clock-center {
+	width: 8px;
+	height: 8px;
+	z-index: 10;
+	background-color: var(--orange);
+}
+.clock-min, .clock-hour {
+	height: 100%;
+	left: -1px;
+	right: 0;
+	margin: 0 auto;
+	animation-name: time;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	width: 2px;
+}
+.clock-min {
+	animation-duration: 4s;
+}
+.clock-hour {
+	left: -2px;
+	animation-duration: 30s;
+}
+.clock-min:before, .clock-hour:before {
+	content: "";
+	background: #262626;
+	width: 2px;
+}
+.clock-min:before {
+	height: 60px;
+	top: 30px;
+}
+.clock-hour:before {
+	height: 40px;
+	width: 3px;
+	top: 50px;
+}
+.clock-alarm {
+	z-index: 3;
+	background-image: linear-gradient(34deg,
+    hsl(44, 100%, 50%) 0%,
+    hsl(42.81, 99.75%, 52.73%) 8%,
+    hsl(41.04, 98.99%, 55.22%) 15.2%,
+    hsl(38.62, 97.71%, 57.48%) 21.7%,
+    hsl(35.46, 95.93%, 59.52%) 27.8%,
+    hsl(31.46, 93.67%, 61.36%) 33.5%,
+    hsl(26.47, 90.98%, 62.99%) 38.9%,
+    hsl(20.36, 87.94%, 64.43%) 44.3%,
+    hsl(12.97, 84.65%, 65.69%) 49.7%,
+    hsl(4.15, 81.23%, 66.77%) 55.3%,
+    hsl(354.39, 79.48%, 65.09%) 61.2%,
+    hsl(346.14, 79.28%, 61.35%) 67.5%,
+    hsl(339.48, 79.47%, 57.46%) 74.4%,
+    hsl(334.21, 80.02%, 53.43%) 82.1%,
+    hsl(330.15, 83.21%, 49.3%) 90.5%,
+    hsl(327.13, 100%, 45.1%) 100%
+	 );
+}
+.clock-alarm {
+	animation: explode 10s ease-in-out infinite both 3s;
+}
+
+.clock-trigger {
+	height: 100%;
+	left: -3px;
+	right: 0;
+	margin: 0 auto;
+	width: 2px;
+}
+.clock-trigger:before {
+	content: "";
+	width: 3px;
+	background-image: linear-gradient(180deg, #df4e76 0%, #df4e76 25%, #df4e7610 25%);;
+	height: 85px;
+	top: 5px;
+	opacity: 0;
+	transform-origin: bottom center;
+}
+.clock-trigger.clock-trigger-1:before {
+	transform: rotate(150deg);
+	animation: show-up 1s linear 3s forwards;
+}
+.clock-trigger.clock-trigger-2:before {
+	transform: rotate(270deg);
+	animation: show-up 1s linear 4s forwards;
+}
+.clock-trigger.clock-trigger-3:before {
+	transform: rotate(30deg);
+	animation: show-up 1s linear 5s forwards;
+}
+@keyframes explode {
+	85% {
+		transform: scale(1) rotate(0deg);
+	}
+	95% {
+		transform: scale(1.1) rotate(180deg);
+	}
+	97% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.5) rotate(360deg);
+	}
+}
+@keyframes time {
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes show-up {
+	to {
+		opacity: 1;
+	}
+}
