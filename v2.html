@@ -48,6 +48,66 @@
       border-radius: inherit;
       padding: .25rem .5rem;
     }
+    .tile > div {
+      padding: 1.5rem;
+    }
+    .tile-text {
+      min-height: 6rem;
+    }
+    .tile-text h3, .tile-text h4 {
+      text-align: center;
+      font-weight: 700;
+    }
+    .tile-text > div {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      text-align: center;
+      color: #888;
+      min-height: 3rem;
+      line-height: 1.2;
+    }
+    .tile-smaller .tile-text > div {
+      min-height: 2.5rem;
+    }
+    .tile-text a, .tile-text a:visited {
+      color: #888;
+    }
+    .tile-text a:hover {
+      color: var(--pink);
+      text-decoration-color: var(--pink);
+    }
+    .tile-icon {
+      max-width: 6rem;
+    }
+    #snooze_anything img {
+      height: 6rem;
+      width: 6rem;
+    }
+    #snooze_anything .buttons span {
+      padding: .2rem;
+      border-bottom: 3px solid transparent;
+    }
+    #snooze_anything .buttons span.active {
+      border-color: var(--pink);
+    }
+    #snooze_anything .icons img:not(.active) {
+      display: none;
+    }
+    @media (max-width: 992px) {
+      .ratio > * {
+        position: relative;
+      }
+      .ratio:before {
+        display: none;
+      }
+    }
+    @media (max-width: 1200px) {
+      .tile > div.p-2 {
+        padding: .5rem;
+      }
+    }
+
   </style>
   <script async defer data-website-id="c03d7b02-81d7-423b-abc0-3627e8cd1577" src="https://stats.rohan.xyz/umami.js"></script>
 </head>
@@ -119,63 +179,180 @@
       </div>
       <div class="row py-md-3 py-0">
         <div class="col-md-4 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #d6d2f7">
-            <div class="d-flex flex-column justify-content-center align-items-center">tabs, windows, selections</div>
+          <div class="tile corners ratio ratio-1x1" style="background-color: #C5E0D8">
+            <div id="snooze_anything" class="d-flex flex-column justify-content-between align-items-center">
+              <div class="buttons mt-lg-4 mt-0 p-xl-3 p-1 d-flex justify-content-around w-100 corners" style="background-color: #0001; line-height: 1;">
+                <span data-button="tab" class="active">This Tab</span>
+                <span data-button="window">Window</span>
+                <span data-button="selection">Selection</span>
+              </div>
+              <div class="icons py-4">
+                <img data-icon="tab" class="img-fluid active " src="img/logo.svg" alt="An Icon for This Tab">
+                <img data-icon="window" class="img-fluid" src="icons/human-window.png" alt="An Icon for This Window">
+                <img data-icon="selection" class="img-fluid" src="icons/human-selection.png" alt="An Icon for Selected Tabs">
+              </div>
+              <div class="tile-text">
+                <h3>Snooze anything</h3>
+                <div>
+                  There's no limits on what you can snooze.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-4 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #aef0be">
-            <div class="d-flex flex-column justify-content-center align-items-center">recurring snoozes</div>
+          <div class="tile corners ratio ratio-1x1" style="background-color: #FFD3BD">
+            <div class="d-flex flex-column justify-content-between align-items-center">
+              <div></div>
+              <div class="tile-text">
+                <h3>Recurring snoozes</h3>
+                <div>
+                  Reopen tabs at fixed intervals.<br>No need to bookmark any timesheets.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-4 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #c0e5fc">
-            <div class="d-flex flex-column justify-content-center align-items-center">nap room</div>
+          <div class="tile corners ratio ratio-1x1" style="background-color: #C1BED1">
+            <div class="d-flex flex-column justify-content-between align-items-center">
+              <div></div>
+              <div class="tile-text">
+                <h3>Nap Room</h3>
+                <div>
+                  View and edit your Snoozz history.<br>No tab left behind.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row py-md-2 py-0">
-        <div class="col-md-3 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #ffa09f">
-            <div class="d-flex flex-column justify-content-center align-items-center">context menu</div>
+        <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
+          <div class="tile tile-smaller corners p-3 ratio ratio-1x1" style="background-color: #FFFCE0">
+            <div class="d-flex p-2 flex-column justify-content-between align-items-center">
+              <div class="pt-5 pb-3">
+                <img class="img-fluid tile-icon" src="images/right-click.png">
+              </div>
+              <div class="tile-text">
+                <h4>Context Menus</h4>
+                <div>
+                  Right click &#10513; Snooze. <br>Doesn't get easier than that
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-3 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #FBECAB">
-            <div class="d-flex flex-column justify-content-center align-items-center">keyboard shortcuts</div>
+        <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #DDF1FF">
+            <div class="d-flex p-0 flex-column justify-content-between align-items-center">
+              <div class="pt-5 pb-3">
+                <img class="img-fluid tile-icon" src="images/keyboard.png" style="max-width: 14rem">
+              </div>
+              <div class="tile-text pb-3">
+                <h4>Keyboard Shortcuts</h4>
+                <div class="px-2">
+                  Set up your own key combos. <br>Clicking is so 2012
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-3 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #BBBFC9">
-            <div class="d-flex flex-column justify-content-center align-items-center">blazing fast</div>
+        <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #C6EBC9">
+            <div class="d-flex p-2 flex-column justify-content-between align-items-center">
+              <div class="pt-5 pb-3">
+                <img class="img-fluid tile-icon" src="images/open-source.png">
+              </div>
+              <div class="tile-text">
+                <h4>Open Source</h4>
+                <div>
+                  <div>Nothing dodgy going on here. <br>See for <a target="_blank" href="https://github.com/rohanb10/snoozz-tab-snoozing/">yourself</a>.</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-3 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #F2D2A1">
-            <div class="d-flex flex-column justify-content-center align-items-center">open source</div>
+        <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #FECBCB">
+            <div class="d-flex flex-column justify-content-between align-items-center p-0" style="background-image: url('images/snail.gif'); background-size: cover;">
+              <div class="py-5 my-5 my-lg-0">&nbsp;</div>
+              <div class="tile-text pb-2 px-2 pt-lg-0 pt-5 mt-lg-0 mt-5">
+                <h4>Blazing Fast</h4>
+                <div>
+                  <div>The entire extension is ~130kb. <br>That's smaller than this snail.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #C6CBCF">
+            <div class="d-flex p-2 flex-column justify-content-between align-items-center">
+              <div class="pt-5 pb-3">
+                <img class="img-fluid tile-icon" src="images/dark.png">
+              </div>
+              <div class="tile-text">
+                <h4>Dark Mode</h4>
+                <div class="text-dark">
+                  The coolest kids use dark mode.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #F0DDEC">
+            <div class="d-flex p-2 flex-column justify-content-between align-items-center">
+              <div class="pt-4 pb-3">
+                <img class="img-fluid tile-icon" src="images/theme.png" style="max-width: 16rem">
+              </div>
+              <div class="tile-text">
+                <h4>Themes</h4>
+                <div>
+                  Pixel-perfect curated icon packs to mix things up.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #C3D5EB">
+            <div class="d-flex p-2 flex-column justify-content-between align-items-center">
+              <div class="pt-5 pb-3">
+                <img class="img-fluid tile-icon" src="images/offline.png">
+              </div>
+              <div class="tile-text">
+                <h4>Works Offline</h4>
+                <div>
+                  No internet? No problem. <br> Your tabs will still wake up later.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #f2f2f2">
+            <div class="d-flex p-2 flex-column justify-content-between align-items-center">
+              <div class="pt-5 pb-3">
+                <img class="img-fluid tile-icon" src="images/soon.png">
+              </div>
+              <div class="tile-text">
+                <h4>More to come...</h4>
+                <div>
+                  Lots of features lined up for 2022 and beyond
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row py-md-2 py-0">
-        <div class="col-md-3 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #ffa09f">
-            <div class="d-flex flex-column justify-content-center align-items-center">dark mode</div>
-          </div>
-        </div>
-        <div class="col-md-3 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #FBECAB">
-            <div class="d-flex flex-column justify-content-center align-items-center">themes</div>
-          </div>
-        </div>
-        <div class="col-md-3 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #BBBFC9">
-            <div class="d-flex flex-column justify-content-center align-items-center">offline</div>
-          </div>
-        </div>
-        <div class="col-md-3 my-md-0 my-2">
-          <div class="corners p-3 ratio ratio-1x1" style="background-color: #F2D2A1">
-            <div class="d-flex flex-column justify-content-center align-items-center">customisable / coming soon</div>
-          </div>
+      <div class="row my-5">
+        <div class="col-12 text-center my-lg-5">
+          <h2>Over <span class="d-inline-block text-center" style="min-width: 8rem">
+            <span id="snoozes" class="d-inline-block px-2 py-1 rounded" style="background-color: var(--orange);">0</span>
+          </span> tabs snoozed since mid 2021.</h2>
+          <div class="pt-3 text-center"><a style="color: var(--pink);" href="./stats">See all the Stats ></a></div>
         </div>
       </div>
     </div>
@@ -223,10 +400,58 @@
     </div>
   </footer>
   <div id="hidden" class="d-none"></div>
-  <script src="./js/wow.js"></script>
+  <!-- <script src="./js/wow.js"></script> -->
   <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/countup.min.js"></script>
   <script>
-    new WOW({offset: 200}).init();
+    function cycle() {
+      var buttons = ['tab', 'window', 'selection'];
+      var active = document.querySelector('#snooze_anything .buttons span.active').getAttribute('data-button');
+      var next = buttons[(buttons.findIndex(a => a == active) + 1) % buttons.length];
+      
+      document.querySelector('#snooze_anything .buttons span.active').classList.remove('active');
+      document.querySelector('#snooze_anything .icons img.active').classList.remove('active');
+
+      document.querySelector(`#snooze_anything .buttons span[data-button="${next}"]`).classList.add('active');
+      document.querySelector(`#snooze_anything .icons img[data-icon="${next}"]`).classList.add('active');
+    }
+
+    async function getTotalSnoozes() {
+      try {
+        var response = await fetch(`https://stats.snoozz.me/total_clicks`);
+        response.json().then(data => {
+          var c = new CountUp('snoozes', data || 123000);
+          c.start();
+        });  
+      } catch {
+        var c = new CountUp('snoozes', 123000);
+        c.start();
+      }
+      
+    }
+    window.addEventListener('load', async function(event) {
+      await getTotalSnoozes();
+      setInterval(cycle, 2500);
+    });
+    
+
+    // function animateCountUp(el){
+    //   var frame = 0;
+    //   var frameDuration = 1000 / 60, totalFrames = Math.round(2000 / frameDuration);
+    //   var easeOutQuad = t => t * ( 2 - t );
+    //   var countTo = parseInt(el.innerHTML, 10);
+    //   var counter = setInterval(_ => {
+    //     frame++;
+    //     var progress = easeOutQuad(frame / totalFrames);
+    //     var currentCount = Math.round(countTo * progress);
+    //     if (parseInt(el.innerHTML, 10) !== currentCount) el.innerHTML = currentCount;
+    //     if (frame === totalFrames) clearInterval(counter);
+    //   }, frameDuration);
+    // }
+    // document.querySelectorAll('.countup').forEach(animateCountUp);
+    
+    // new WOW({offset: 200}).init();
+
   </script>
 </body>
 </html>
