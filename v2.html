@@ -68,9 +68,6 @@
       min-height: 3rem;
       line-height: 1.25;
     }
-    .tile-smaller .tile-text > div {
-      min-height: 2.5rem;
-    }
     .tile-text a, .tile-text a:visited {
       color: #888;
     }
@@ -84,29 +81,32 @@
     #snooze_anything img {
       height: 6rem;
       width: 6rem;
+      opacity: 1;
+      transition: opacity .5s ease-in-out;
     }
     #snooze_anything .buttons span {
       padding: .2rem;
       border-bottom: 3px solid transparent;
+      transition: border-color .5s linear;
     }
     #snooze_anything .buttons span.active {
       border-color: var(--pink);
     }
     #snooze_anything .icons img:not(.active) {
-      display: none;
+      opacity: 0;
     }
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
       .ratio > * {
         position: relative;
       }
       .ratio:before {
         display: none;
       }
-    }
-    @media (max-width: 1200px) {
       .tile > div.p-2 {
         padding: .5rem;
       }
+    }
+    @media (max-width: 1200px) {
     }
 
   </style>
@@ -145,7 +145,7 @@
           <video id="hero" autoplay loop muted playsinline class="ratio corners" poster="images/vid-thumb.jpg" src="images/vid.webm" type="video/webm" alt="Video preview of the Snoozz extension in use">
           </video>
         </div>
-        <div class="col-lg-5 d-flex flex-column justify-content-center align-items-center py-md-3 py-2">
+        <div class="col-lg-5 d-flex flex-column justify-content-center align-items-center py-md-3 py-2 mb-2">
           <div class=" py-lg-5 p-3 corners" style="background-color: #FEEACA">
             <img class="img-fluid px-lg-5 p-2" src="images/snoozz-colour.png" alt="Snoozz">
             <h5 class="text-center pt-4" data-delay="1s">A WebExtension to put tabs to sleep, <br class="d-none d-xl-block">and automatically wake them up later.</h5>
@@ -179,7 +179,7 @@
         </div>
       </div>
       <div class="row py-lg-3 py-0">
-        <div class="col-lg-4 col-md-12 my-lg-0 my-2">
+        <div class="col-lg-4 col-md-12 my-lg-0 mt-2 mb-3">
           <div class="tile corners ratio ratio-1x1" style="background-color: #C5E0D8">
             <div id="snooze_anything" class="d-flex flex-column justify-content-between align-items-center">
               <div class="buttons mt-lg-4 mt-0 p-md-3 p-2 d-flex justify-content-around w-100 corners" style="background-color: #0001; line-height: 1;">
@@ -188,9 +188,9 @@
                 <span data-button="selection">Selection</span>
               </div>
               <div class="icons py-4">
-                <img data-icon="tab" class="img-fluid active " src="img/logo.svg" alt="An Icon for This Tab">
-                <img data-icon="window" class="img-fluid" src="icons/human-window.png" alt="An Icon for This Window">
-                <img data-icon="selection" class="img-fluid" src="icons/human-selection.png" alt="An Icon for Selected Tabs">
+                <img data-icon="tab" class="img-fluid active" src="img/logo.svg" alt="An Icon for This Tab">
+                <img data-icon="window" class="img-fluid d-none" src="icons/human-window.png" alt="An Icon for This Window">
+                <img data-icon="selection" class="img-fluid d-none" src="icons/human-selection.png" alt="An Icon for Selected Tabs">
               </div>
               <div class="tile-text">
                 <h3>Snooze anything</h3>
@@ -201,10 +201,10 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 my-lg-0 my-2">
+        <div class="col-lg-4 col-md-6 my-lg-0 mt-2 mb-3">
           <div class="tile corners ratio ratio-1x1" style="background-color: #FFD3BD">
             <div class="d-flex flex-column justify-content-between align-items-center">
-              <div class="position-relative w-100 mt-5 mb-3" style="min-height: 200px;">
+              <div class="position-relative w-100 my-3 my-xxl-4" style="min-height: 200px;">
                 <div class="clock-base">
                   <div class="clock-alarm"></div>
                   <div class="clock-border"></div>
@@ -230,16 +230,16 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 my-lg-0 my-2">
+        <div class="col-lg-4 col-md-6 my-lg-0 mt-2 mb-3">
           <div class="tile corners ratio ratio-1x1" style="background-color: #C1BED1">
             <div class="d-flex flex-column justify-content-between align-items-center">
-              <div class="pt-5 pb-3">
+              <div class="py-xl-3 py-xxl-4">
                 <img class="img-fluid tile-icon" src="images/nap2.gif" style="max-width: 12rem">
               </div>
               <div class="tile-text">
                 <h3>Nap Room</h3>
                 <div>
-                  View and edit your Snoozz history.<br>No tab left behind.
+                  View and edit your Snoozz history. <br class="d-none d-xl-block">No tab left behind.
                 </div>
               </div>
             </div>
@@ -248,10 +248,10 @@
       </div>
       <div class="row py-md-2 py-0">
         <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
-          <div class="tile tile-smaller corners p-3 ratio ratio-1x1" style="background-color: #FFFCE0">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #FECBCB">
             <div class="d-flex p-2 flex-column justify-content-between align-items-center">
               <div class="pt-5 pb-3">
-                <img class="img-fluid tile-icon" src="images/right-click.png">
+                <img class="img-fluid tile-icon" src="images/right-click.gif">
               </div>
               <div class="tile-text">
                 <h4>Context Menus</h4>
@@ -264,16 +264,14 @@
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
           <div class="tile corners ratio ratio-1x1" style="background-color: #DDF1FF">
-            <div class="d-flex p-0 flex-column justify-content-between align-items-center">
-              <div class="pt-5 pb-3">
-                <img class="img-fluid tile-icon" src="images/keyboard.png" style="max-width: 14rem">
-              </div>
-              <div class="tile-text pb-3">
-                <h4>Keyboard Shortcuts</h4>
-                <div class="px-2">
-                  Set up your own key combos. <br>Clicking is so 2012
+            <div class="d-flex p-0 flex-column justify-content-between align-items-center" style="background-image: url('images/keyboard.gif'); background-size: 80%; background-position: 50% 100%;background-repeat: no-repeat;">
+              <div class="pb-5 pb-md-0 mb-5 mb-xl-0">
+                <h4 class="pt-4 mt-2" style="font-weight: 900">Keyboard Shortcuts</h4>
+                <div class="pb-5 pb-md-0 text-center" style="color: #888">
+                  Set up your own key combos.
                 </div>
               </div>
+              <div class="py-5 my-5 my-xl-0 py-xl-0"></div>
             </div>
           </div>
         </div>
@@ -293,9 +291,9 @@
           </div>
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
-          <div class="tile corners ratio ratio-1x1" style="background-color: #FECBCB">
+          <div class="tile corners ratio ratio-1x1" style="background-color: #FFFCE0">
             <div class="d-flex flex-column justify-content-between align-items-center p-0" style="background-image: url('images/snail.gif'); background-size: cover;">
-              <div class="py-5 my-5 my-lg-0">&nbsp;</div>
+              <div class="py-5 my-5 my-xl-0">&nbsp;</div>
               <div class="tile-text pb-2 px-3 pt-lg-0 pt-5 mt-lg-0 mt-5">
                 <h4>Blazing Fast</h4>
                 <div>
@@ -323,7 +321,7 @@
         <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
           <div class="tile corners ratio ratio-1x1" style="background-color: #F0DDEC">
             <div class="d-flex p-2 flex-column justify-content-between align-items-center">
-              <div class="pt-4 pb-3">
+              <div class="pt-xxl-4 pt-2 pb-3">
                 <img class="img-fluid tile-icon" src="images/theme.png" style="max-width: 16rem">
               </div>
               <div class="tile-text">
@@ -337,11 +335,11 @@
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 mt-2 mb-3">
           <div class="tile corners ratio ratio-1x1" style="background-color: #C3D5EB">
-            <div class="d-flex p-2 flex-column justify-content-between align-items-center">
-              <div class="pt-5 pb-3">
+            <div class="d-flex p-0 flex-column justify-content-between align-items-center">
+              <div class="pt-4 pb-3">
                 <img class="img-fluid tile-icon" src="images/offline.png">
               </div>
-              <div class="tile-text">
+              <div class="tile-text pb-2 px-1">
                 <h4>Works Offline</h4>
                 <div>
                   No internet? No problem. <br> Your tabs will still wake up later.
@@ -371,7 +369,7 @@
           <h2>A total of <span class="d-inline-block text-center" style="min-width: 8rem">
             <span id="snoozes" class="d-inline-block px-2 py-1 rounded" style="background-color: var(--orange);">0</span>
           </span> tabs snoozed since mid 2021.</h2>
-          <div class="pt-3 text-center"><a style="color: var(--pink);" href="./stats">See all the Stats ></a></div>
+          <div class="pt-3 text-center"><a style="color: var(--pink);" href="./stats">See more Stats ></a></div>
         </div>
       </div>
     </div>
@@ -424,15 +422,25 @@
   <script src="./js/countup.min.js"></script>
   <script>
     function cycle() {
-      var buttons = ['tab', 'window', 'selection'];
+      var cycleTimeout, buttons = ['tab', 'window', 'selection'];
       var active = document.querySelector('#snooze_anything .buttons span.active').getAttribute('data-button');
       var next = buttons[(buttons.findIndex(a => a == active) + 1) % buttons.length];
       
+      document.querySelector('#snooze_anything .buttons span.active').addEventListener('transitionend', function() {
+        document.querySelector('#snooze_anything .icons img.active').addEventListener('transitionend', function() {
+          document.querySelectorAll('#snooze_anything .icons img').forEach(i => i.classList.add('d-none'));
+          document.querySelector(`#snooze_anything .icons img[data-icon="${next}"]`).classList.remove('d-none');
+          document.querySelector(`#snooze_anything .icons img[data-icon="${next}"]`).classList.add('active');
+          document.querySelector(`#snooze_anything .buttons span[data-button="${next}"]`).classList.add('active');
+          clearTimeout(cycleTimeout);
+          cycleTimeout = setTimeout(cycle, 2500);
+        }, {once: true})
+        document.querySelector('#snooze_anything .icons img.active').classList.remove('active');
+      }, {once: true})
       document.querySelector('#snooze_anything .buttons span.active').classList.remove('active');
-      document.querySelector('#snooze_anything .icons img.active').classList.remove('active');
 
-      document.querySelector(`#snooze_anything .buttons span[data-button="${next}"]`).classList.add('active');
-      document.querySelector(`#snooze_anything .icons img[data-icon="${next}"]`).classList.add('active');
+      // document.querySelector(`#snooze_anything .buttons span[data-button="${next}"]`).classList.add('active');
+      // document.querySelector(`#snooze_anything .icons img[data-icon="${next}"]`).classList.add('active');
     }
 
     async function getTotalSnoozes() {
@@ -450,7 +458,7 @@
     }
     window.addEventListener('load', async function(event) {
       await getTotalSnoozes();
-      setInterval(cycle, 2500);
+      cycleTimeout = setTimeout(cycle, 2500);
     });
     
 
