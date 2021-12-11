@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Snoozz</title>
+  <meta name="title" content="Snoozz - Tab & Window Snoozing">
+  <meta name="description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snoozz.me/">
+  <meta property="og:title" content="Snoozz - Tab & Window Snoozing">
+  <meta property="og:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="og:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://snoozz.me/">
+  <meta property="twitter:title" content="Snoozz - Tab & Window Snoozing">
+  <meta property="twitter:description" content="A lightweight, open-source WebExtension to help you manage your tabs better.">
+  <meta property="twitter:image" content="https://snoozz.me/assets/banner.jpg">
+  <meta name="author" content="Rohan Bhansali">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/animate.css" rel="stylesheet">
+  <link href="./css/common.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style type="text/css">
+    .text-pink {
+      color: var(--pink);
+    }
+    .bg-pink {
+      background-color: var(--pink);
+    }
+    .step h5 {
+      font-size: .95rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--pink);
+      margin-bottom: .25rem;
+    }
+    .step p {
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+      font-weight: 600;
+    }
+    .help {
+      border-radius: .25rem;
+      display: inline-block;
+      margin: 2.5rem 3rem 0;
+      max-width: 32rem;
+      padding: 1rem;
+      line-height: 1.4;
+      background-color: #dff3ff;
+    }
+    @media (max-width: 991px) {
+      .help {
+        margin: 1rem 0;
+        max-width: unset;
+        display: block;
+      }
+    }
+    kbd {
+      background-color: #636D74;
+    }
+    li {
+      padding: .2rem 0;
+    }
+  </style>
+  <script async defer data-website-id="c03d7b02-81d7-423b-abc0-3627e8cd1577" src="https://stats.rohan.xyz/umami.js"></script>
+</head>
+<body class="d-flex flex-column">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand umami--click--snoozz-logo-header" href="/">
+        <img src="./img/logo.svg" alt="snoozz logo">
+      </a>
+      <button class="navbar-burger d-block d-lg-none me-2 p-4 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"></button>
+      <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link umami--click--changelog-header" href="./changelog">Changelog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link umami--click--privacy-header" href="./privacy">Privacy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link umami--click--stats-header" href="./stats">Stats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link umami--click--github-header" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a>
+          </li>
+        </ul>
+        <div class="navbar-stripe"></div>
+      </div>
+    </div>
+  </nav>
+  <div class="main-body w-100">
+    <div class="container py-lg-5">
+      <h1 class="pb-4"><strong>Welcome to <span class="text-light d-inline-block bg-pink px-2">Snoozz</span></strong></h1>
+      <h2 class="text-muted"><strong>Let's snooze your first tab.</strong></h2>
+      <div class="d-flex mt-4">
+        <div class="step">
+          <h5>Step 1</h5>
+          <p>Find the Snoozz icon in the top right corner of your browser.</p>
+        </div>
+        <div class="ms-2 ps-2 ms-md-5 ps-md-5">
+          <img class="img-fluid" src="./img/logo.svg" style="width: 4rem">
+        </div>
+      </div>
+      <div class="help mb-4 mb-md-5">
+        <div class="text-muted pb-1">It may be hinding behing inside a menu.</div>
+        <div class="text-muted" style="filter: grayscale(100%);">Don't forget to pin it 📌 to your toolbar if its hidden.</div>
+      </div>
+      <div class="step py-4 py-md-5">
+        <h5>Step 2</h5>
+        <p>Click on the icon to open the Snoozz popup.</p>
+        <div class="help">
+            <img class="img-fluid rounded" src="./images/screencap.png">
+        </div>
+      </div>
+      <div class="step py-4 py-md-5">
+        <h5>Step 3</h5>
+        <p>Choose what you want to snooze: a <span class="text-pink">tab</span>, <span class="text-pink">window</span> or <span class="text-pink">selected tabs</span>.</p>
+        <div class="help">
+          Hold down <kbd>Cmd &#8984;</kbd> / <kbd>Ctrl</kbd> and click on multiple tabs in your browser to enable the <strong>Selected</strong> option.
+        </div>
+      </div>
+      <div class="step py-4 py-md-5">
+        <h5>Step 4</h5>
+        <p>Select one of the 11 choices in the popup to snooze your tab.</p>
+        <div class="py-3 px-md-5 px-0">
+            <img class="img-fluid" style="max-height: 4rem;" src="./images/choice-hover.png">
+        </div>
+        <div class="help">
+          <div>Whatever you selected in Step 3 will automatically close and be saved in the <strong>Nap Room</strong>.</div>
+          <br>
+          <div>You can view it by clicking on <strong>See Sleeping Tabs</strong> at the bottom of the popup.</div>
+        </div>
+      </div>
+      <div class="d-flex py-5 align-items-center">
+        <div class="me-4" style="font-size: 3rem;">🎉</div>
+        <div>
+          <h2 class="mb-0"><strong>Thats it!</strong></h2>
+          <h2 class="text-muted">Your tab will reopen at the selected time automatically.</h2>
+        </div>
+      </div>
+      <hr>
+      <div class="step py-4 py-md-5">
+        <h5>BTW</h5>
+        <p>You can also click on <span class="text-pink">Choose your own time</span> to select a specific time and date.</p>
+        <div class="help">
+            <img class="img-fluid rounded" src="./images/cyot.png">
+        </div>
+      </div>
+      <div class="step py-4 py-md-5">
+        <h5>Also BTW</h5>
+        <p>Toggle the <span class="text-pink">Repeat</span> checkbox to view all the recurring snooze options.</p>
+        <div class="p-3">
+            <img class="img-fluid" style="clip-path: polygon(0 1px, 100% 1px, 100% 100%, 0% 100%)" src="./images/repeat.gif">
+        </div>
+      </div>
+      <div class="step py-4 py-md-5">
+        <h5>One Last Thing</h5>
+        <p>Click on the <span class="text-pink">Gear Icon</span> in the popup or Nap Room to open the <span class="text-pink">Settings</span> page.</p>
+        <div class="help" style="max-width: unset">
+          <div class="pb-3">You can customise Snoozz extensively to make it your own:</div>
+          <ul>
+            <li>Change <strong>Morning</strong> and <strong>Evening</strong> times.</li>
+            <li>Configure your own <strong>Keyboard Shortcuts</strong>.</li>
+            <li>Choose the options in the <strong>Context Menu</strong> (when you right click on a link).</li>
+            <li>Changes <strong>Themes</strong> and toggling <strong>Dark Mode</strong>.</li>
+            <li>Switch between 12 and 24 hour time.</li>
+            <li>Change the first day of the week.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-stripe"></div>
+  </div>
+  <footer class="pt-lg-5 pt-md-4 pt-3 pb-3 mt-auto">
+    <div class="row container mx-auto">
+      <div class="col-12 col-md">
+        <h5>Snoozz</h5>
+        <small class="d-block mb-3 text-light">2020-2021</small>
+        <h5>Author</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-light umami--click--rohanxyz-footer" href="https://rohan.xyz/">Rohan Bhansali</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Support</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-light umami--click--bugs-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Report a Bug</a></li>
+          <li><a target="_blank" class="link-light umami--click--suggest-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing/issues/new/choose">Suggest a feature</a></li>
+          <li><a class="link-light umami--click--compatibility-footer" href="./compatibility">Compatibility</a></li>
+          <li><a class="link-light umami--click--faq-footer" href="./faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-light umami--click--privacy-footer" href="./privacy">Privacy</a></li>
+          <li><a class="link-light umami--click--stats-footer" href="./stats">Stats</a></li>
+          <li><a class="link-light umami--click--changelog-footer" href="./changelog">Changelog</a></li>
+          <li><a class="link-light umami--click--attribution-footer" href="./attribution">Attribution</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Links</h5>
+        <ul class="list-unstyled text-small">
+          <li><a target="_blank" class="link-light umami--click--github-footer" href="https://github.com/rohanb10/snoozz-tab-snoozing">Github</a></li>
+          <li><a target="_blank" class="link-light umami--click--cws-footer" href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb">Chrome Web Store</a></li>
+          <li><a target="_blank" class="link-light umami--click--moz-footer" href="https://addons.mozilla.org/en-US/firefox/addon/snoozz/">Firefox Add-Ons</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div id="hidden" class="d-none"></div>
+  <script src="./js/wow.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script>
+    new WOW({offset: 200}).init();
+  </script>
+</body>
+</html>
