@@ -111,7 +111,6 @@
     }
 
   </style>
-  <script async defer data-website-id="c03d7b02-81d7-423b-abc0-3627e8cd1577" src="https://stats.rohan.xyz/umami.js"></script>
 </head>
 <body class="d-flex flex-column">
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent">
@@ -150,6 +149,17 @@
           <div class=" py-lg-5 p-3 corners" style="background-color: #FEEACA">
             <img class="img-fluid px-lg-5 p-2" src="images/snoozz-colour.png" alt="Snoozz">
             <h5 class="text-center pt-4" data-delay="1s">A WebExtension to put tabs to sleep, <br class="d-none d-xl-block">and automatically wake them up later.</h5>
+            <div class="send-to-email w-100 d-md-none p-2 my-4 rounded" style="background-color: #0001">
+              <p>Snoozz is not available on your phone.</p>
+              <p>Enter your email below and you'll get a link to download the extension later.</p>
+              
+              <div><input class="form-control" type="email" placeholder="your@email.here"></div>
+              <div class="text-center my-3">
+                <button class="btn text-light" style="background-color: var(--pink)">Send me a link</button>
+              </div>
+              <p class="text-muted mt-2 mb-0 initialism text-center">This is not a mailing list I promise.</p>
+              <h1 class="text-center">See you soon!</h1>
+            </div>
             <div class="downloads w-100 px-xl-5 px-lg-3 pt-lg-4 pt-4 d-lg-block d-flex flex-wrap justify-content-center">
               <div class="d-flex justify-content-around px-0 px-lg-4 py-2">
                 <a href="https://chrome.google.com/webstore/detail/snoozz-snooze-tabs-window/lklendgldejcnkkaldoggoapclkepgfb" class="link mx-1" style="--deg: -2deg">
@@ -368,7 +378,7 @@
       <div class="row my-5 justify-content-center">
         <div class="col-6 text-center my-lg-5">
           <h2>A total of <span class="d-inline-block text-center" style="min-width: 8rem">
-            <span id="snoozes" class="d-inline-block px-2 py-1 rounded" style="background-color: var(--orange);">0</span>
+            <span id="snoozes" class="d-inline-block px-2 py-1 rounded" style="background-color: var(--orange);">4,50,000</span>
           </span> tabs snoozed since <span id="since">mid 2021</span>.</h2>
           <div class="pt-3 text-center"><a style="color: var(--pink);" href="./stats">See more Stats ></a></div>
         </div>
@@ -421,6 +431,7 @@
   <!-- <script src="./js/wow.js"></script> -->
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/countup.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
     function cycle() {
       var cycleTimeout, buttons = ['tab', 'window', 'selection'];
@@ -445,14 +456,14 @@
       var periods = [
         'mid 2021',
         'the fall of the Berlin wall',
-        'man reached the moon',
+        'Laika went to space',
         'Y2K',
         'Game of Thrones crashed and burned',
         'Daft Punk split up',
         'Spurs last won a trophy',
-        'Tony Hawk did a 900',
+        'Virat last hit a century',
         'TikTok got banned in India',
-        'Everest was summitted',
+        'Tenzing summitted Everest',
       ];
       document.getElementById('since').innerText = periods[Math.floor(Math.random() * periods.length)];
     }
@@ -461,11 +472,12 @@
       try {
         var response = await fetch(`https://stats.snoozz.me/total_clicks`);
         response.json().then(data => {
-          var c = new CountUp('snoozes', data || 123000);
+          document.getElementById('snoozes').innerText = '0';
+          var c = new CountUp('snoozes', data || 400000);
           c.start();
         });  
       } catch {
-        var c = new CountUp('snoozes', 123000);
+        var c = new CountUp('snoozes', 400000);
         c.start();
       }
       
